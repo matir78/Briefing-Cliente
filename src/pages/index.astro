@@ -21,6 +21,7 @@ import {
     Users,
     Globe,
     Share2,
+    Info,
 } from "lucide-react";
 
 import "../styles/global.css";
@@ -125,15 +126,24 @@ import "../styles/global.css";
                                     type="text"
                                     name="Empresa"
                                     required
-                                    placeholder="Ej: Carmelo Services LLC"
+                                    placeholder="Ej: Home Services LLC"
                                     class="input-field w-full p-3 rounded-lg focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div>
                                 <label
-                                    class="block text-sm font-medium text-slate-700 mb-2"
-                                    >Eslogan o Frase Corta</label
-                                >
+                                    class="block text-sm font-medium text-slate-700 mb-2 flex items-center"
+                                    >Eslogan o Frase Corta
+                                    <div class="tooltip-container">
+                                        <Info
+                                            className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                        />
+                                        <div class="tooltip-content">
+                                            Una frase breve que defina tu
+                                            negocio. Ej: "Calidad que perdura"
+                                        </div>
+                                    </div>
+                                </label>
                                 <input
                                     type="text"
                                     name="Eslogan"
@@ -208,9 +218,18 @@ import "../styles/global.css";
 
                         <div class="mb-8">
                             <label
-                                class="block text-sm font-medium text-slate-700 mb-3"
-                                >Objetivo Principal de la Web</label
-                            >
+                                class="block text-sm font-medium text-slate-700 mb-3 flex items-center"
+                                >Objetivo Principal de la Web
+                                <div class="tooltip-container">
+                                    <Info
+                                        className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                    />
+                                    <div class="tooltip-content">
+                                        Define la acción prioritaria: ¿Ventas
+                                        directas o imagen?
+                                    </div>
+                                </div>
+                            </label>
                             <div class="grid grid-cols-1 gap-4">
                                 <label class="cursor-pointer relative">
                                     <input
@@ -286,9 +305,18 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-700 mb-2"
-                                >Público Objetivo (Target)</label
-                            >
+                                class="block text-sm font-medium text-slate-700 mb-2 flex items-center"
+                                >Público Objetivo (Target)
+                                <div class="tooltip-container">
+                                    <Info
+                                        className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                    />
+                                    <div class="tooltip-content">
+                                        ¿A quién le vendemos? Edad, ubicación e
+                                        intereses.
+                                    </div>
+                                </div>
+                            </label>
                             <div class="relative">
                                 <Users
                                     className="absolute top-3 left-3 text-slate-400 w-5 h-5"
@@ -307,9 +335,18 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-700 mb-2"
-                                >Principales Competidores</label
-                            >
+                                class="block text-sm font-medium text-slate-700 mb-2 flex items-center"
+                                >Principales Competidores
+                                <div class="tooltip-container">
+                                    <Info
+                                        className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                    />
+                                    <div class="tooltip-content">
+                                        Nombres o webs de la competencia para
+                                        analizar.
+                                    </div>
+                                </div>
+                            </label>
                             <textarea
                                 name="Competencia"
                                 rows="2"
@@ -590,9 +627,18 @@ import "../styles/global.css";
                         <div class="grid grid-cols-1 gap-8 mb-8">
                             <div>
                                 <p
-                                    class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold"
+                                    class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold flex items-center"
                                 >
                                     Estilo Visual
+                                    <div class="tooltip-container">
+                                        <Info
+                                            className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                        />
+                                        <div class="tooltip-content">
+                                            La "personalidad" que debe
+                                            transmitir tu marca.
+                                        </div>
+                                    </div>
                                 </p>
                                 <div class="grid grid-cols-1 gap-4">
                                     <!-- Corporativo -->
@@ -785,9 +831,18 @@ import "../styles/global.css";
                             </div>
                             <div>
                                 <p
-                                    class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold"
+                                    class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold flex items-center"
                                 >
                                     Zonas de Cobertura
+                                    <div class="tooltip-container">
+                                        <Info
+                                            className="w-4 h-4 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                        />
+                                        <div class="tooltip-content">
+                                            Ciudades o áreas donde prestas
+                                            servicio.
+                                        </div>
+                                    </div>
                                 </p>
                                 <input
                                     type="text"
@@ -930,29 +985,39 @@ import "../styles/global.css";
                                 >Material Disponible</label
                             >
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <label class="flex items-center space-x-2">
+                                <label class="flex items-start space-x-2">
                                     <input
                                         type="checkbox"
                                         name="Recursos"
                                         value="Logo Vectorial"
-                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
+                                        class="mt-1 rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span
-                                        class="text-slate-700 font-medium text-sm"
-                                        >Logo (Vector/Alta)</span
-                                    >
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="text-slate-700 font-medium text-sm"
+                                            >Logo (Vector/Alta)</span
+                                        >
+                                        <span class="text-[10px] text-slate-400"
+                                            >.AI, .EPS, .SVG o PNG grande</span
+                                        >
+                                    </div>
                                 </label>
-                                <label class="flex items-center space-x-2">
+                                <label class="flex items-start space-x-2">
                                     <input
                                         type="checkbox"
                                         name="Recursos"
                                         value="Fotografias Propias"
-                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
+                                        class="mt-1 rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span
-                                        class="text-slate-700 font-medium text-sm"
-                                        >Buena Fotografía</span
-                                    >
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="text-slate-700 font-medium text-sm"
+                                            >Buena Fotografía</span
+                                        >
+                                        <span class="text-[10px] text-slate-400"
+                                            >Imágenes de alta resolución</span
+                                        >
+                                    </div>
                                 </label>
                                 <label class="flex items-center space-x-2">
                                     <input
@@ -975,9 +1040,18 @@ import "../styles/global.css";
                                         class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
                                     <span
-                                        class="text-slate-700 font-medium text-sm"
-                                        >Hosting/Dominio Web</span
-                                    >
+                                        class="text-slate-700 font-medium text-sm flex items-center gap-1"
+                                        >Hosting/Dominio Web
+                                        <div class="tooltip-container">
+                                            <Info
+                                                className="w-3 h-3 text-slate-400 hover:text-blue-500 tooltip-trigger"
+                                            />
+                                            <div class="tooltip-content">
+                                                Marca si ya tienes contratado
+                                                servidor y dominio.
+                                            </div>
+                                        </div>
+                                    </span>
                                 </label>
                             </div>
                             <!-- Conditional Input for Hosting -->
@@ -1318,6 +1392,37 @@ import "../styles/global.css";
                     }
                 });
             }
+
+            // --- TOOLTIP LOGIC (Mobile Click Support) ---
+            document.addEventListener("DOMContentLoaded", () => {
+                const tooltips =
+                    document.querySelectorAll(".tooltip-container");
+
+                tooltips.forEach((container) => {
+                    const trigger = container.querySelector(".tooltip-trigger");
+
+                    if (trigger) {
+                        trigger.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            // Close others
+                            tooltips.forEach((t) => {
+                                if (t !== container)
+                                    t.classList.remove("active");
+                            });
+
+                            // Toggle current
+                            container.classList.toggle("active");
+                        });
+                    }
+                });
+
+                // Close when clicking outside
+                document.addEventListener("click", () => {
+                    tooltips.forEach((t) => t.classList.remove("active"));
+                });
+            });
         </script>
     </body>
 </html>
