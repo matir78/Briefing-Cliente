@@ -52,7 +52,34 @@ body {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
-.hidden-checkbox:checked + .selection-card .check-icon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Premium Card Styles */
+.card-premium {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-premium:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
+}
+
+.card-premium:active {
+    transform: scale(0.98);
+}
+
+.hidden-checkbox:checked + .card-premium {
+    border-color: var(--color-brand-accent);
+    background-color: rgba(30, 58, 138, 0.4);
+    box-shadow: 0 0 0 2px var(--color-brand-accent);
+}
+
+.hidden-checkbox:checked + .card-premium .check-icon {
     opacity: 1;
     transform: scale(1);
 }

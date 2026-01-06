@@ -50,7 +50,7 @@ import "../styles/global.css";
             class="bg-slate-900/90 backdrop-blur-md border-b border-slate-700 sticky top-0 z-40"
         >
             <div
-                class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between"
+                class="max-w-lg mx-auto px-6 py-4 flex items-center justify-between"
             >
                 <div class="flex items-center gap-3">
                     <div class="bg-blue-600 p-2 rounded-lg">
@@ -90,7 +90,7 @@ import "../styles/global.css";
             </div>
         </header>
 
-        <main class="max-w-4xl mx-auto px-6 py-8">
+        <main class="max-w-lg mx-auto px-6 py-8">
             <form id="briefForm" class="space-y-6">
                 <!-- STEP 1: IDENTIDAD -->
                 <div class="step-content" data-step="1">
@@ -113,7 +113,7 @@ import "../styles/global.css";
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 gap-6 mb-6">
                             <div>
                                 <label
                                     class="block text-sm font-medium text-slate-300 mb-2"
@@ -141,7 +141,7 @@ import "../styles/global.css";
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 gap-6 mb-6">
                             <div>
                                 <label
                                     class="block text-sm font-medium text-slate-300 mb-2"
@@ -209,7 +209,7 @@ import "../styles/global.css";
                                 class="block text-sm font-medium text-slate-300 mb-3"
                                 >Objetivo Principal de la Web</label
                             >
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 gap-4">
                                 <label class="cursor-pointer relative">
                                     <input
                                         type="radio"
@@ -219,14 +219,30 @@ import "../styles/global.css";
                                         checked
                                     />
                                     <div
-                                        class="selection-card bg-slate-800 p-4 rounded-xl border border-slate-600 hover:bg-slate-700 flex items-center gap-3"
+                                        class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-600 flex flex-col items-center text-center gap-3 h-full justify-center group"
                                     >
-                                        <Target
-                                            className="text-red-500 w-6 h-6"
-                                        />
-                                        <span class="text-slate-200"
-                                            >Captar Clientes (Leads)</span
+                                        <div
+                                            class="p-3 bg-red-900/30 rounded-full group-hover:bg-red-600 transition-colors"
                                         >
+                                            <Target
+                                                className="text-red-500 group-hover:text-white w-8 h-8 transition-colors"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="font-bold text-white mb-1"
+                                            >
+                                                Captar Clientes
+                                            </h4>
+                                            <p class="text-xs text-slate-400">
+                                                Generar leads y ventas
+                                            </p>
+                                        </div>
+                                        <div
+                                            class="check-icon absolute top-2 right-2 text-red-400 opacity-0 transition-all transform scale-0"
+                                        >
+                                            <CheckCircle2 className="w-5 h-5" />
+                                        </div>
                                     </div>
                                 </label>
                                 <label class="cursor-pointer relative">
@@ -237,14 +253,30 @@ import "../styles/global.css";
                                         class="hidden-checkbox"
                                     />
                                     <div
-                                        class="selection-card bg-slate-800 p-4 rounded-xl border border-slate-600 hover:bg-slate-700 flex items-center gap-3"
+                                        class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-600 flex flex-col items-center text-center gap-3 h-full justify-center group"
                                     >
-                                        <Lightbulb
-                                            className="text-yellow-500 w-6 h-6"
-                                        />
-                                        <span class="text-slate-200"
-                                            >Presencia de Marca</span
+                                        <div
+                                            class="p-3 bg-yellow-900/30 rounded-full group-hover:bg-yellow-600 transition-colors"
                                         >
+                                            <Lightbulb
+                                                className="text-yellow-500 group-hover:text-white w-8 h-8 transition-colors"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h4
+                                                class="font-bold text-white mb-1"
+                                            >
+                                                Presencia de Marca
+                                            </h4>
+                                            <p class="text-xs text-slate-400">
+                                                Informativa e institucional
+                                            </p>
+                                        </div>
+                                        <div
+                                            class="check-icon absolute top-2 right-2 text-yellow-400 opacity-0 transition-all transform scale-0"
+                                        >
+                                            <CheckCircle2 className="w-5 h-5" />
+                                        </div>
                                     </div>
                                 </label>
                             </div>
@@ -325,9 +357,7 @@ import "../styles/global.css";
                         >
                             Servicios Outdoor (Exterior)
                         </p>
-                        <div
-                            class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
-                        >
+                        <div class="grid grid-cols-2 gap-4 mb-8">
                             <label class="cursor-pointer relative">
                                 <input
                                     type="checkbox"
@@ -427,9 +457,7 @@ import "../styles/global.css";
                         >
                             Servicios Indoor (Interior)
                         </p>
-                        <div
-                            class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8"
-                        >
+                        <div class="grid grid-cols-2 gap-4 mb-8">
                             <label class="cursor-pointer relative">
                                 <input
                                     type="checkbox"
@@ -557,40 +585,199 @@ import "../styles/global.css";
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div class="grid grid-cols-1 gap-8 mb-8">
                             <div>
                                 <p
                                     class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold"
                                 >
                                     Estilo Visual
                                 </p>
-                                <div class="space-y-3">
-                                    <label
-                                        class="flex items-center p-4 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition"
-                                    >
+                                <div class="grid grid-cols-1 gap-4">
+                                    <!-- Corporativo -->
+                                    <label class="cursor-pointer relative">
                                         <input
                                             type="radio"
                                             name="Estilo_Visual"
                                             value="Corporativo y Limpio"
-                                            class="w-5 h-5 text-blue-600 mr-3"
+                                            class="hidden-checkbox"
                                             checked
                                         />
-                                        <span class="text-slate-200"
-                                            >Corporativo (Azul, Blanco, Serio)</span
+                                        <div
+                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
                                         >
+                                            <div class="mb-4">
+                                                <div
+                                                    class="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-3 group-hover:bg-blue-600 transition-colors"
+                                                >
+                                                    <Building2
+                                                        className="text-blue-400 group-hover:text-white w-6 h-6 transition-colors"
+                                                    />
+                                                </div>
+                                                <h4
+                                                    class="text-lg font-bold text-white mb-1"
+                                                >
+                                                    Corporativo
+                                                </h4>
+                                                <p
+                                                    class="text-sm text-slate-400 mb-3"
+                                                >
+                                                    Confiable, profesional,
+                                                    seguro.
+                                                </p>
+
+                                                <!-- HSL Palette Example -->
+                                                <div
+                                                    class="flex gap-1 h-3 rounded-full overflow-hidden"
+                                                >
+                                                    <div
+                                                        class="flex-1 bg-[hsl(222,47%,11%)]"
+                                                        title="Dark Blue"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(217,91%,60%)]"
+                                                        title="Action Blue"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(210,40%,96%)]"
+                                                        title="Light Gray"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="check-icon absolute top-3 right-3 text-blue-400 opacity-0 transition-all transform scale-0"
+                                            >
+                                                <CheckCircle2
+                                                    className="w-6 h-6"
+                                                />
+                                            </div>
+                                        </div>
                                     </label>
-                                    <label
-                                        class="flex items-center p-4 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition"
-                                    >
+
+                                    <!-- Robusto -->
+                                    <label class="cursor-pointer relative">
                                         <input
                                             type="radio"
                                             name="Estilo_Visual"
                                             value="Robusto y Fuerte"
-                                            class="w-5 h-5 text-orange-600 mr-3"
+                                            class="hidden-checkbox"
                                         />
-                                        <span class="text-slate-200"
-                                            >Robusto (Negro, Naranja, Bold)</span
+                                        <div
+                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
                                         >
+                                            <div class="mb-4">
+                                                <div
+                                                    class="w-12 h-12 bg-orange-900/50 rounded-lg flex items-center justify-center mb-3 group-hover:bg-orange-600 transition-colors"
+                                                >
+                                                    <Target
+                                                        className="text-orange-400 group-hover:text-white w-6 h-6 transition-colors"
+                                                    />
+                                                </div>
+                                                <h4
+                                                    class="text-lg font-bold text-white mb-1"
+                                                >
+                                                    Robusto
+                                                </h4>
+                                                <p
+                                                    class="text-sm text-slate-400 mb-3"
+                                                >
+                                                    Industrial, fuerte, alto
+                                                    contraste.
+                                                </p>
+
+                                                <!-- HSL Palette Example -->
+                                                <div
+                                                    class="flex gap-1 h-3 rounded-full overflow-hidden"
+                                                >
+                                                    <div
+                                                        class="flex-1 bg-[hsl(0,0%,5%)]"
+                                                        title="Almost Black"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(25,95%,53%)]"
+                                                        title="Safety Orange"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(210,13%,15%)]"
+                                                        title="Dark Gray"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="check-icon absolute top-3 right-3 text-orange-400 opacity-0 transition-all transform scale-0"
+                                            >
+                                                <CheckCircle2
+                                                    className="w-6 h-6"
+                                                />
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <!-- Minimalista (NUEVO) -->
+                                    <label class="cursor-pointer relative">
+                                        <input
+                                            type="radio"
+                                            name="Estilo_Visual"
+                                            value="Minimalista y Moderno"
+                                            class="hidden-checkbox"
+                                        />
+                                        <div
+                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
+                                        >
+                                            <div class="mb-4">
+                                                <div
+                                                    class="w-12 h-12 bg-slate-100/10 rounded-lg flex items-center justify-center mb-3 group-hover:bg-slate-100 transition-colors"
+                                                >
+                                                    <Sparkles
+                                                        className="text-slate-300 group-hover:text-slate-900 w-6 h-6 transition-colors"
+                                                    />
+                                                </div>
+                                                <h4
+                                                    class="text-lg font-bold text-white mb-1"
+                                                >
+                                                    Minimalista
+                                                </h4>
+                                                <p
+                                                    class="text-sm text-slate-400 mb-3"
+                                                >
+                                                    Espacio blanco, tipografía
+                                                    limpia.
+                                                </p>
+
+                                                <!-- HSL Palette Example -->
+                                                <div
+                                                    class="flex gap-1 h-3 rounded-full overflow-hidden border border-slate-600"
+                                                >
+                                                    <div
+                                                        class="flex-1 bg-[hsl(0,0%,100%)]"
+                                                        title="White"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(0,0%,95%)]"
+                                                        title="Off White"
+                                                    >
+                                                    </div>
+                                                    <div
+                                                        class="flex-1 bg-[hsl(0,0%,10%)]"
+                                                        title="Black Text"
+                                                    >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="check-icon absolute top-3 right-3 text-slate-200 opacity-0 transition-all transform scale-0"
+                                            >
+                                                <CheckCircle2
+                                                    className="w-6 h-6"
+                                                />
+                                            </div>
+                                        </div>
                                     </label>
                                 </div>
                             </div>
@@ -614,7 +801,7 @@ import "../styles/global.css";
                         >
                             Actitud del Cliente Ideal
                         </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div class="grid grid-cols-1 gap-4 mb-6">
                             <label class="cursor-pointer relative">
                                 <input
                                     type="radio"
@@ -623,14 +810,23 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700"
+                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-slate-700 flex flex-col items-center text-center group"
                                 >
-                                    <CircleDollarSign
-                                        className="text-green-500 w-10 h-10 mb-2"
-                                    />
+                                    <div
+                                        class="p-3 bg-green-900/30 rounded-full mb-3 group-hover:bg-green-600 transition-colors"
+                                    >
+                                        <CircleDollarSign
+                                            className="text-green-500 group-hover:text-white w-8 h-8 transition-colors"
+                                        />
+                                    </div>
                                     <h4 class="font-bold text-white mb-2">
                                         Busca Precio
                                     </h4>
+                                    <div
+                                        class="check-icon absolute top-2 right-2 text-green-400 opacity-0 transition-all transform scale-0"
+                                    >
+                                        <CheckCircle2 className="w-5 h-5" />
+                                    </div>
                                 </div>
                             </label>
                             <label class="cursor-pointer relative">
@@ -642,14 +838,23 @@ import "../styles/global.css";
                                     checked
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-blue-500/50 hover:bg-slate-700"
+                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-blue-500/50 flex flex-col items-center text-center group"
                                 >
-                                    <Handshake
-                                        className="text-blue-500 w-10 h-10 mb-2"
-                                    />
+                                    <div
+                                        class="p-3 bg-blue-900/30 rounded-full mb-3 group-hover:bg-blue-600 transition-colors"
+                                    >
+                                        <Handshake
+                                            className="text-blue-500 group-hover:text-white w-8 h-8 transition-colors"
+                                        />
+                                    </div>
                                     <h4 class="font-bold text-white mb-2">
                                         Busca Confianza
                                     </h4>
+                                    <div
+                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                    >
+                                        <CheckCircle2 className="w-5 h-5" />
+                                    </div>
                                 </div>
                             </label>
                             <label class="cursor-pointer relative">
@@ -660,14 +865,23 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700"
+                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-slate-700 flex flex-col items-center text-center group"
                                 >
-                                    <Building2
-                                        className="text-purple-500 w-10 h-10 mb-2"
-                                    />
+                                    <div
+                                        class="p-3 bg-purple-900/30 rounded-full mb-3 group-hover:bg-purple-600 transition-colors"
+                                    >
+                                        <Building2
+                                            className="text-purple-500 group-hover:text-white w-8 h-8 transition-colors"
+                                        />
+                                    </div>
                                     <h4 class="font-bold text-white mb-2">
                                         Corporativo
                                     </h4>
+                                    <div
+                                        class="check-icon absolute top-2 right-2 text-purple-400 opacity-0 transition-all transform scale-0"
+                                    >
+                                        <CheckCircle2 className="w-5 h-5" />
+                                    </div>
                                 </div>
                             </label>
                         </div>
