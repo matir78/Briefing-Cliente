@@ -971,6 +971,7 @@ import "../styles/global.css";
                                         type="checkbox"
                                         name="Recursos"
                                         value="Hosting/Dominio"
+                                        id="hostingCheckbox"
                                         class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
                                     <span
@@ -978,6 +979,23 @@ import "../styles/global.css";
                                         >Hosting/Dominio Web</span
                                     >
                                 </label>
+                            </div>
+                            <!-- Conditional Input for Hosting -->
+                            <div
+                                id="hostingDetails"
+                                class="mt-4 hidden animate-fade-in-up"
+                            >
+                                <label
+                                    class="block text-sm font-medium text-slate-700 mb-2"
+                                >
+                                    Detalles del Hosting/Dominio
+                                </label>
+                                <input
+                                    type="text"
+                                    name="Hosting_Detalles"
+                                    placeholder="Ej: GoDaddy, Hostinger, usuario y clave..."
+                                    class="input-field w-full p-3 rounded-lg placeholder-slate-400"
+                                />
                             </div>
                         </div>
 
@@ -1180,6 +1198,20 @@ import "../styles/global.css";
 
             // Initialize
             updateUI();
+
+            // --- HOSTING TOGGLE LOGIC ---
+            const hostingCheckbox = document.getElementById("hostingCheckbox");
+            const hostingDetails = document.getElementById("hostingDetails");
+
+            if (hostingCheckbox && hostingDetails) {
+                hostingCheckbox.addEventListener("change", (e) => {
+                    if ((e.target as HTMLInputElement).checked) {
+                        hostingDetails.classList.remove("hidden");
+                    } else {
+                        hostingDetails.classList.add("hidden");
+                    }
+                });
+            }
 
             // --- SUBMISSION LOGIC ---
             function getFormData() {
