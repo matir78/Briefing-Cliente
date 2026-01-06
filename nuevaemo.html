@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing de Proyecto Web | Versión Interactiva</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc;
+        }
+
+        .step-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* Card Selection Styles */
+        .selectable-card {
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .selectable-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .selectable-card.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+        }
+
+        /* Checkmark badge for selected items */
+        .check-badge {
+            display: none;
+        }
+
+        .selectable-card.selected .check-badge {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body class="text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold">B
+                </div>
+                <h1 class="font-bold text-lg tracking-tight">Briefing Creativo</h1>
+            </div>
+            <div class="text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                Paso <span id="currentStepNum">1</span> de 5
+            </div>
+        </div>
+        <!-- Progress Bar -->
+        <div class="w-full bg-slate-100 h-1.5">
+            <div id="progressBar" class="bg-brand-600 h-1.5 transition-all duration-500 ease-out" style="width: 20%">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-8 w-full">
+
+        <form id="briefingForm" onsubmit="return false;">
+
+            <!-- STEP 1: IDENTIDAD -->
+            <div id="step1" class="step-content active">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Hablemos de tu Negocio</h2>
+                    <p class="text-slate-500">Lo básico para empezar a conocernos.</p>
+                </div>
+
+                <div class="grid gap-6 md:grid-cols-2">
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nombre de la Empresa /
+                            Marca</label>
+                        <input type="text" name="brandName"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                            placeholder="Ej: TechSolutions">
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Tu Nombre</label>
+                        <input type="text" name="contactName"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                            placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                        <input type="email" name="email"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                            placeholder="juan@empresa.com">
+                    </div>
+                    <div class="col-span-2 md:col-span-1">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Sitio Web Actual (si
+                            tienes)</label>
+                        <input type="url" name="currentWeb"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                            placeholder="https://...">
+                    </div>
+                    <div class="col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Elevator Pitch (¿Qué hacen en una
+                            frase?)</label>
+                        <textarea name="pitch" rows="2"
+                            class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition"
+                            placeholder="Ayudamos a empresas a..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2: ESTRATEGIA -->
+            <div id="step2" class="step-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Estrategia Digital</h2>
+                    <p class="text-slate-500">¿Cuál es el propósito real de este sitio web?</p>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Objetivos (Visual Cards) -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-3">Objetivo Principal (Elige
+                            uno)</label>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="selectable-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer relative"
+                                onclick="selectCard('objective', this, 'Ventas / Leads')">
+                                <div
+                                    class="absolute top-2 right-2 check-badge bg-brand-600 text-white rounded-full w-5 h-5 items-center justify-center text-xs">
+                                    <i class="fas fa-check"></i></div>
+                                <div
+                                    class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-3 text-xl">
+                                    <i class="fas fa-sack-dollar"></i></div>
+                                <h3 class="font-bold text-slate-800">Vender / Leads</h3>
+                                <p class="text-xs text-slate-500 mt-1">Quiero formularios llenos y teléfonos sonando.
+                                </p>
+                            </div>
+                            <div class="selectable-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer relative"
+                                onclick="selectCard('objective', this, 'Branding / Prestigio')">
+                                <div
+                                    class="absolute top-2 right-2 check-badge bg-brand-600 text-white rounded-full w-5 h-5 items-center justify-center text-xs">
+                                    <i class="fas fa-check"></i></div>
+                                <div
+                                    class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-3 text-xl">
+                                    <i class="fas fa-gem"></i></div>
+                                <h3 class="font-bold text-slate-800">Prestigio</h3>
+                                <p class="text-xs text-slate-500 mt-1">Quiero verme profesional y generar confianza.</p>
+                            </div>
+                            <div class="selectable-card bg-white p-4 rounded-xl border border-slate-200 cursor-pointer relative"
+                                onclick="selectCard('objective', this, 'Informativa')">
+                                <div
+                                    class="absolute top-2 right-2 check-badge bg-brand-600 text-white rounded-full w-5 h-5 items-center justify-center text-xs">
+                                    <i class="fas fa-check"></i></div>
+                                <div
+                                    class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-3 text-xl">
+                                    <i class="fas fa-info"></i></div>
+                                <h3 class="font-bold text-slate-800">Informativa</h3>
+                                <p class="text-xs text-slate-500 mt-1">Mostrar horarios, ubicación y FAQs.</p>
+                            </div>
+                        </div>
+                        <input type="hidden" name="objective" id="input_objective">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Cliente Ideal</label>
+                            <textarea name="target" rows="3"
+                                class="w-full px-4 py-2 border border-slate-300 rounded-lg text-sm"
+                                placeholder="Ej: Hombres de 30-50 años, dueños de casas en la zona norte, buscan calidad antes que precio..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Competencia /
+                                Referentes</label>
+                            <textarea name="competitors" rows="3"
+                                class="w-full px-4 py-2 border border-slate-300 rounded-lg text-sm"
+                                placeholder="Menciona 1 o 2 webs que te gusten o competidores directos."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3: DISEÑO (NUEVO) -->
+            <div id="step3" class="step-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Diseño y Estilo</h2>
+                    <p class="text-slate-500">La parte visual. ¿Cómo "se siente" tu marca?</p>
+                </div>
+
+                <!-- Estilos Visuales Dinámicos -->
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-slate-700 mb-3">Estilo Visual Preferido</label>
+                    <div id="styleContainer" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <!-- JS inyectará las cards aquí -->
+                    </div>
+                    <input type="hidden" name="visualStyle" id="input_visualStyle">
+                </div>
+
+                <!-- Paletas de Colores -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-3">Paleta de Colores Aproximada</label>
+                    <div id="paletteContainer" class="flex flex-wrap gap-3">
+                        <!-- JS inyectará los colores aquí -->
+                    </div>
+                    <input type="hidden" name="colorPalette" id="input_colorPalette">
+                </div>
+            </div>
+
+            <!-- STEP 4: LOGÍSTICA -->
+            <div id="step4" class="step-content">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2">Alcance y Recursos</h2>
+                    <p class="text-slate-500">Definamos los límites del proyecto.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <!-- Presupuesto (Rango) -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-3">Rango de Inversión Estimado</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="budget" value="Básico (<$500)" class="peer sr-only">
+                                <div
+                                    class="px-4 py-3 border rounded-lg text-center text-sm peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 transition">
+                                    Básico<br><span class="text-xs text-slate-500">&lt; $500</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="budget" value="Estándar ($500-1500)" class="peer sr-only">
+                                <div
+                                    class="px-4 py-3 border rounded-lg text-center text-sm peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 transition">
+                                    Estándar<br><span class="text-xs text-slate-500">$500 - $1.5k</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="budget" value="Pro ($1500-3000)" class="peer sr-only">
+                                <div
+                                    class="px-4 py-3 border rounded-lg text-center text-sm peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 transition">
+                                    Pro<br><span class="text-xs text-slate-500">$1.5k - $3k</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="budget" value="Premium (+$3000)" class="peer sr-only">
+                                <div
+                                    class="px-4 py-3 border rounded-lg text-center text-sm peer-checked:border-brand-500 peer-checked:bg-brand-50 peer-checked:text-brand-700 transition">
+                                    Premium<br><span class="text-xs text-slate-500">+ $3k</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Assets -->
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-2">¿Qué tienes listo ya?</label>
+                        <div class="flex flex-wrap gap-4">
+                            <label class="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="assets" value="Logotipo"
+                                    class="rounded text-brand-600 focus:ring-brand-500">
+                                <span>Logotipo</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="assets" value="Fotos"
+                                    class="rounded text-brand-600 focus:ring-brand-500">
+                                <span>Fotografías</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="assets" value="Textos"
+                                    class="rounded text-brand-600 focus:ring-brand-500">
+                                <span>Textos (Copy)</span>
+                            </label>
+                            <label class="flex items-center space-x-2 text-sm text-slate-700 cursor-pointer">
+                                <input type="checkbox" name="assets" value="Dominio/Hosting"
+                                    class="rounded text-brand-600 focus:ring-brand-500">
+                                <span>Dominio/Hosting</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 5: RESUMEN -->
+            <div id="step5" class="step-content">
+                <div class="text-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-slate-900">¡Todo Listo!</h2>
+                    <p class="text-slate-500">Revisa la información antes de enviar.</p>
+                </div>
+
+                <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm mb-6 text-sm">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 mb-3">Resumen del Briefing</h3>
+                    <div id="summaryContent" class="space-y-3 text-slate-600">
+                        <!-- JS llenará esto -->
+                    </div>
+                </div>
+
+                <button onclick="sendToWhatsApp()"
+                    class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform transition hover:-translate-y-1 flex items-center justify-center gap-3 text-lg">
+                    <i class="fab fa-whatsapp text-2xl"></i> Enviar Briefing por WhatsApp
+                </button>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Footer Controls -->
+    <footer class="bg-white border-t border-slate-200 p-4 sticky bottom-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <button id="prevBtn" onclick="changeStep(-1)"
+                class="px-6 py-2 rounded-lg text-slate-600 font-medium hover:bg-slate-100 transition hidden">
+                Atrás
+            </button>
+            <div class="flex-grow"></div> <!-- Spacer -->
+            <button id="nextBtn" onclick="changeStep(1)"
+                class="px-8 py-3 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition shadow-md">
+                Siguiente <i class="fas fa-arrow-right ml-2 text-sm"></i>
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // CONFIGURACIÓN
+        const WHATSAPP_NUMBER = "59899000000"; // PON TU NÚMERO AQUÍ
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        // DATA: Estilos y Paletas
+        const designData = {
+            "styles": [
+                {
+                    "id": "style_corp",
+                    "title": "Corporativo",
+                    "description": "Serio, confiable, azul y blanco. Ideal B2B.",
+                    "icon": "fa-building", // Usando iconos en lugar de imagenes externas para fiabilidad
+                    "color": "bg-blue-50 text-blue-600",
+                    "value": "Corporativo"
+                },
+                {
+                    "id": "style_bold",
+                    "title": "Robusto / Bold",
+                    "description": "Alto contraste, fuentes gruesas, industrial.",
+                    "icon": "fa-cube",
+                    "color": "bg-orange-50 text-orange-600",
+                    "value": "Robusto"
+                },
+                {
+                    "id": "style_clean",
+                    "title": "Minimalista",
+                    "description": "Limpio, mucho aire, estética moderna.",
+                    "icon": "fa-leaf",
+                    "color": "bg-gray-50 text-gray-600",
+                    "value": "Minimalista"
+                }
+            ],
+            "palettes": [
+                { "name": "Azul Profundo", "colors": ["#1e3a8a", "#3b82f6", "#ffffff"] },
+                { "name": "Energía Naranja", "colors": ["#1a1a1a", "#f97316", "#f3f4f6"] },
+                { "name": "Verde Eco", "colors": ["#14532d", "#22c55e", "#ffffff"] },
+                { "name": "Elegancia Oscura", "colors": ["#000000", "#d4af37", "#1c1c1c"] },
+                { "name": "Pastel Suave", "colors": ["#fce7f3", "#a5b4fc", "#ffffff"] }
+            ]
+        };
+
+        // INICIALIZACIÓN
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDesignSection();
+            updateUI();
+        });
+
+        // RENDERIZADO DE DISEÑO
+        function renderDesignSection() {
+            // Estilos
+            const styleContainer = document.getElementById('styleContainer');
+            designData.styles.forEach(style => {
+                const card = document.createElement('div');
+                card.className = 'selectable-card bg-white p-5 rounded-xl border border-slate-200 cursor-pointer relative';
+                card.onclick = () => selectCard('visualStyle', card, style.value);
+
+                card.innerHTML = `
+                    <div class="absolute top-2 right-2 check-badge bg-brand-600 text-white rounded-full w-5 h-5 items-center justify-center text-xs"><i class="fas fa-check"></i></div>
+                    <div class="w-full h-24 ${style.color} rounded-lg flex flex-col items-center justify-center mb-4">
+                        <i class="fas ${style.icon} text-3xl mb-2"></i>
+                        <span class="text-xs font-bold uppercase tracking-wider opacity-70">Ejemplo</span>
+                    </div>
+                    <h4 class="font-bold text-slate-900">${style.title}</h4>
+                    <p class="text-xs text-slate-500 mt-1">${style.description}</p>
+                `;
+                styleContainer.appendChild(card);
+            });
+
+            // Paletas
+            const paletteContainer = document.getElementById('paletteContainer');
+            designData.palettes.forEach(pal => {
+                const btn = document.createElement('div');
+                btn.className = 'selectable-card flex items-center gap-3 px-4 py-3 rounded-full border border-slate-200 cursor-pointer bg-white';
+                btn.onclick = () => selectPalette(btn, pal.name);
+
+                let circles = '<div class="flex -space-x-2">';
+                pal.colors.forEach(c => {
+                    circles += `<div class="w-6 h-6 rounded-full border-2 border-white shadow-sm" style="background-color: ${c}"></div>`;
+                });
+                circles += '</div>';
+
+                btn.innerHTML = `${circles} <span class="text-sm font-medium text-slate-700">${pal.name}</span> <i class="fas fa-check ml-auto text-brand-600 check-badge"></i>`;
+                paletteContainer.appendChild(btn);
+            });
+        }
+
+        // LÓGICA DE SELECCIÓN
+        function selectCard(groupName, element, value) {
+            // 1. Set Value
+            document.getElementById('input_' + groupName).value = value;
+
+            // 2. Update UI (Siblings)
+            const parent = element.parentElement;
+            const siblings = parent.querySelectorAll('.selectable-card');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+
+            // 3. Activate Clicked
+            element.classList.add('selected');
+        }
+
+        function selectPalette(element, value) {
+            document.getElementById('input_colorPalette').value = value;
+            const siblings = document.getElementById('paletteContainer').querySelectorAll('.selectable-card');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            element.classList.add('selected');
+        }
+
+        // NAVEGACIÓN
+        function changeStep(n) {
+            // Simple validación (opcional: agregar lógica estricta)
+            if (n === 1 && !validateStep(currentStep)) return;
+
+            // Hide current
+            document.getElementById(`step${currentStep}`).classList.remove('active');
+
+            // Calc next
+            currentStep += n;
+
+            // Show next
+            document.getElementById(`step${currentStep}`).classList.add('active');
+
+            // Update Summary if on last step
+            if (currentStep === 5) generateSummary();
+
+            updateUI();
+            window.scrollTo(0, 0);
+        }
+
+        function validateStep(step) {
+            // Validación básica para el paso 1
+            if (step === 1) {
+                const name = document.querySelector('input[name="brandName"]').value;
+                if (!name) {
+                    alert("Por favor ingresa al menos el nombre de la empresa.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function updateUI() {
+            // Progress Bar
+            const percent = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+            document.getElementById('currentStepNum').innerText = currentStep;
+
+            // Buttons
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                nextBtn.innerHTML = `Siguiente <i class="fas fa-arrow-right ml-2 text-sm"></i>`;
+            }
+        }
+
+        // GENERACIÓN DE RESUMEN
+        function generateSummary() {
+            const form = document.getElementById('briefingForm');
+            const data = new FormData(form);
+            const container = document.getElementById('summaryContent');
+
+            let html = '';
+
+            // Helper simple
+            const addLine = (label, val) => {
+                if (val) html += `<div class="flex justify-between"><span class="font-medium text-slate-800">${label}:</span> <span>${val}</span></div>`;
+            };
+
+            addLine('Empresa', data.get('brandName'));
+            addLine('Contacto', data.get('contactName'));
+            addLine('Objetivo', data.get('objective'));
+            addLine('Estilo', data.get('visualStyle'));
+            addLine('Paleta', data.get('colorPalette'));
+            addLine('Presupuesto', data.get('budget'));
+
+            // Assets Checkboxes
+            const assets = data.getAll('assets');
+            if (assets.length > 0) addLine('Recursos', assets.join(', '));
+
+            container.innerHTML = html;
+        }
+
+        // ENVÍO A WHATSAPP
+        function sendToWhatsApp() {
+            const form = document.getElementById('briefingForm');
+            const data = new FormData(form);
+
+            let msg = `*🚀 NUEVO PROYECTO WEB*\n\n`;
+            msg += `*1. CLIENTE*\n`;
+            msg += `Empresa: ${data.get('brandName') || '-'}\n`;
+            msg += `Nombre: ${data.get('contactName') || '-'}\n`;
+            msg += `Web actual: ${data.get('currentWeb') || 'No tiene'}\n\n`;
+
+            msg += `*2. ESTRATEGIA*\n`;
+            msg += `Objetivo: ${data.get('objective') || '-'}\n`;
+            msg += `Target: ${data.get('target') || '-'}\n\n`;
+
+            msg += `*3. DISEÑO*\n`;
+            msg += `Estilo: ${data.get('visualStyle') || '-'}\n`;
+            msg += `Colores: ${data.get('colorPalette') || '-'}\n\n`;
+
+            msg += `*4. LOGÍSTICA*\n`;
+            msg += `Inversión: ${data.get('budget') || '-'}\n`;
+            msg += `Recursos listos: ${data.getAll('assets').join(', ') || 'Nada aun'}`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+
+</html>
