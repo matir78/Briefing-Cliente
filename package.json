@@ -9,7 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.1",
+    "@astrojs/netlify": "^6.6.3",
     "@astrojs/react": "^4.4.2",
     "@tailwindcss/vite": "^4.1.18",
     "@types/pdfkit": "^0.17.4",
