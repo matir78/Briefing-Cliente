@@ -44,10 +44,10 @@ import "../styles/global.css";
             rel="stylesheet"
         />
     </head>
-    <body class="bg-slate-900 text-slate-100 font-sans min-h-screen pb-32">
+    <body class="font-sans min-h-screen pb-32">
         <!-- HEADER -->
         <header
-            class="bg-slate-900/90 backdrop-blur-md border-b border-slate-700 sticky top-0 z-40"
+            class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40"
         >
             <div
                 class="max-w-lg mx-auto px-6 py-4 flex items-center justify-between"
@@ -57,10 +57,12 @@ import "../styles/global.css";
                         <Briefcase className="text-white w-6 h-6" />
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold tracking-tight text-white">
+                        <h1
+                            class="text-xl font-bold tracking-tight text-slate-900"
+                        >
                             Briefing Creativo
                         </h1>
-                        <p class="text-xs text-slate-400">
+                        <p class="text-xs text-slate-500">
                             Sistema de Toma de Requerimientos
                         </p>
                     </div>
@@ -73,14 +75,14 @@ import "../styles/global.css";
                         <span
                             class="w-2 h-2 rounded-full bg-green-500 animate-pulse"
                         ></span>
-                        <span class="text-xs text-green-400 font-bold"
+                        <span class="text-xs text-green-600 font-bold"
                             >WIZARD ACTIVO</span
                         >
                     </div>
                 </div>
             </div>
             <!-- PROGRESS BAR -->
-            <div class="h-1 bg-slate-800 w-full">
+            <div class="h-1 bg-slate-200 w-full">
                 <div
                     id="progressBar"
                     class="h-full bg-blue-500 transition-all duration-500 ease-out"
@@ -95,7 +97,7 @@ import "../styles/global.css";
                 <!-- STEP 1: IDENTIDAD -->
                 <div class="step-content" data-step="1">
                     <section
-                        class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up"
+                        class="bg-brand-card rounded-2xl p-8 shadow-xl border border-slate-200 animate-fade-in-up"
                     >
                         <div class="flex items-center mb-6">
                             <div
@@ -104,10 +106,10 @@ import "../styles/global.css";
                                 1
                             </div>
                             <div>
-                                <h2 class="text-2xl font-bold text-white">
+                                <h2 class="text-2xl font-bold text-slate-900">
                                     Identidad del Negocio
                                 </h2>
-                                <p class="text-slate-400 text-sm">
+                                <p class="text-slate-500 text-sm">
                                     Datos básicos para contactar y factura.
                                 </p>
                             </div>
@@ -116,7 +118,7 @@ import "../styles/global.css";
                         <div class="grid grid-cols-1 gap-6 mb-6">
                             <div>
                                 <label
-                                    class="block text-sm font-medium text-slate-300 mb-2"
+                                    class="block text-sm font-medium text-slate-700 mb-2"
                                     >Nombre de la Empresa / Marca</label
                                 >
                                 <input
@@ -129,14 +131,14 @@ import "../styles/global.css";
                             </div>
                             <div>
                                 <label
-                                    class="block text-sm font-medium text-slate-300 mb-2"
+                                    class="block text-sm font-medium text-slate-700 mb-2"
                                     >Eslogan o Frase Corta</label
                                 >
                                 <input
                                     type="text"
                                     name="Eslogan"
                                     placeholder="Ej: Calidad que perdura"
-                                    class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500"
+                                    class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                                 />
                             </div>
                         </div>
@@ -144,26 +146,26 @@ import "../styles/global.css";
                         <div class="grid grid-cols-1 gap-6 mb-6">
                             <div>
                                 <label
-                                    class="block text-sm font-medium text-slate-300 mb-2"
+                                    class="block text-sm font-medium text-slate-700 mb-2"
                                     >Teléfono de Contacto</label
                                 >
                                 <input
                                     type="tel"
                                     name="Telefono"
                                     placeholder="+1 (555) 000-0000"
-                                    class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500"
+                                    class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                                 />
                             </div>
                             <div>
                                 <label
-                                    class="block text-sm font-medium text-slate-300 mb-2"
+                                    class="block text-sm font-medium text-slate-700 mb-2"
                                     >Email Principal</label
                                 >
                                 <input
                                     type="email"
                                     name="Email"
                                     placeholder="contacto@empresa.com"
-                                    class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500"
+                                    class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                                 />
                             </div>
                         </div>
@@ -186,7 +188,7 @@ import "../styles/global.css";
                 <!-- STEP 2: ESTRATEGIA (NUEVO) -->
                 <div class="step-content hidden" data-step="2">
                     <section
-                        class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up"
+                        class="bg-brand-card rounded-2xl p-8 shadow-xl border border-slate-200 animate-fade-in-up"
                     >
                         <div class="flex items-center mb-6">
                             <div
@@ -195,10 +197,10 @@ import "../styles/global.css";
                                 2
                             </div>
                             <div>
-                                <h2 class="text-2xl font-bold text-white">
+                                <h2 class="text-2xl font-bold text-slate-900">
                                     Estrategia Digital
                                 </h2>
-                                <p class="text-slate-400 text-sm">
+                                <p class="text-slate-500 text-sm">
                                     ¿Qué queremos lograr con esta web?
                                 </p>
                             </div>
@@ -206,7 +208,7 @@ import "../styles/global.css";
 
                         <div class="mb-8">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-3"
+                                class="block text-sm font-medium text-slate-700 mb-3"
                                 >Objetivo Principal de la Web</label
                             >
                             <div class="grid grid-cols-1 gap-4">
@@ -219,10 +221,10 @@ import "../styles/global.css";
                                         checked
                                     />
                                     <div
-                                        class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-600 flex flex-col items-center text-center gap-3 h-full justify-center group"
+                                        class="card-premium bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center gap-3 h-full justify-center group"
                                     >
                                         <div
-                                            class="p-3 bg-red-900/30 rounded-full group-hover:bg-red-600 transition-colors"
+                                            class="p-3 bg-red-100 rounded-full group-hover:bg-red-600 transition-colors"
                                         >
                                             <Target
                                                 className="text-red-500 group-hover:text-white w-8 h-8 transition-colors"
@@ -230,16 +232,16 @@ import "../styles/global.css";
                                         </div>
                                         <div>
                                             <h4
-                                                class="font-bold text-white mb-1"
+                                                class="font-bold text-slate-900 mb-1"
                                             >
                                                 Captar Clientes
                                             </h4>
-                                            <p class="text-xs text-slate-400">
+                                            <p class="text-xs text-slate-500">
                                                 Generar leads y ventas
                                             </p>
                                         </div>
                                         <div
-                                            class="check-icon absolute top-2 right-2 text-red-400 opacity-0 transition-all transform scale-0"
+                                            class="check-icon absolute top-2 right-2 text-red-500 opacity-0 transition-all transform scale-0"
                                         >
                                             <CheckCircle2 className="w-5 h-5" />
                                         </div>
@@ -253,10 +255,10 @@ import "../styles/global.css";
                                         class="hidden-checkbox"
                                     />
                                     <div
-                                        class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-600 flex flex-col items-center text-center gap-3 h-full justify-center group"
+                                        class="card-premium bg-white p-6 rounded-xl border border-slate-200 flex flex-col items-center text-center gap-3 h-full justify-center group"
                                     >
                                         <div
-                                            class="p-3 bg-yellow-900/30 rounded-full group-hover:bg-yellow-600 transition-colors"
+                                            class="p-3 bg-yellow-100 rounded-full group-hover:bg-yellow-600 transition-colors"
                                         >
                                             <Lightbulb
                                                 className="text-yellow-500 group-hover:text-white w-8 h-8 transition-colors"
@@ -264,16 +266,16 @@ import "../styles/global.css";
                                         </div>
                                         <div>
                                             <h4
-                                                class="font-bold text-white mb-1"
+                                                class="font-bold text-slate-900 mb-1"
                                             >
                                                 Presencia de Marca
                                             </h4>
-                                            <p class="text-xs text-slate-400">
+                                            <p class="text-xs text-slate-500">
                                                 Informativa e institucional
                                             </p>
                                         </div>
                                         <div
-                                            class="check-icon absolute top-2 right-2 text-yellow-400 opacity-0 transition-all transform scale-0"
+                                            class="check-icon absolute top-2 right-2 text-yellow-500 opacity-0 transition-all transform scale-0"
                                         >
                                             <CheckCircle2 className="w-5 h-5" />
                                         </div>
@@ -284,18 +286,18 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Público Objetivo (Target)</label
                             >
                             <div class="relative">
                                 <Users
-                                    className="absolute top-3 left-3 text-slate-500 w-5 h-5"
+                                    className="absolute top-3 left-3 text-slate-400 w-5 h-5"
                                 />
                                 <input
                                     type="text"
                                     name="Publico_Objetivo"
                                     placeholder="Ej: Dueños de casa en zonas residenciales, Empresas..."
-                                    class="input-field w-full p-3 pl-10 rounded-lg"
+                                    class="input-field w-full p-3 pl-10 rounded-lg placeholder-slate-400"
                                 />
                             </div>
                             <p class="text-xs text-slate-500 mt-1">
@@ -305,27 +307,27 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Principales Competidores</label
                             >
                             <textarea
                                 name="Competencia"
                                 rows="2"
                                 placeholder="Nombres o links de empresas que ofrezcan lo mismo..."
-                                class="input-field w-full p-3 rounded-lg"
+                                class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                             ></textarea>
                         </div>
 
                         <div>
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Notas Adicionales (Estrategia)</label
                             >
                             <textarea
                                 name="Notas_Estrategia"
                                 rows="2"
                                 placeholder="Detalles extra sobre objetivos..."
-                                class="input-field w-full p-3 rounded-lg"
+                                class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                             ></textarea>
                         </div>
                     </section>
@@ -334,7 +336,7 @@ import "../styles/global.css";
                 <!-- STEP 3: SERVICIOS -->
                 <div class="step-content hidden" data-step="3">
                     <section
-                        class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up"
+                        class="bg-brand-card rounded-2xl p-8 shadow-xl border border-slate-200 animate-fade-in-up"
                     >
                         <div class="flex items-center mb-6">
                             <div
@@ -343,10 +345,10 @@ import "../styles/global.css";
                                 3
                             </div>
                             <div>
-                                <h2 class="text-2xl font-bold text-white">
+                                <h2 class="text-2xl font-bold text-slate-900">
                                     Servicios a Ofrecer
                                 </h2>
-                                <p class="text-slate-400 text-sm">
+                                <p class="text-slate-500 text-sm">
                                     Selecciona las áreas de negocio.
                                 </p>
                             </div>
@@ -366,16 +368,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Globe
                                         className="text-green-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Landscaping</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -389,16 +391,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Snowflake
-                                        className="text-blue-300 w-8 h-8 mb-3"
+                                        className="text-blue-400 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Nieve / Snow</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -412,16 +414,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Cuboid
-                                        className="text-orange-400 w-8 h-8 mb-3"
+                                        className="text-orange-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Hardscaping</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -435,16 +437,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Sparkles
-                                        className="text-yellow-600 w-8 h-8 mb-3"
+                                        className="text-yellow-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Limpieza Terreno</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -466,16 +468,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <PaintRoller
                                         className="text-pink-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Pintura</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -489,16 +491,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Hammer
-                                        className="text-gray-400 w-8 h-8 mb-3"
+                                        className="text-gray-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Reparaciones</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -512,16 +514,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <Zap
-                                        className="text-yellow-400 w-8 h-8 mb-3"
+                                        className="text-yellow-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Plomería/Elec.</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -535,16 +537,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700"
+                                    class="selection-card bg-white border border-slate-200 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-50"
                                 >
                                     <PencilRuler
-                                        className="text-purple-400 w-8 h-8 mb-3"
+                                        className="text-purple-500 w-8 h-8 mb-3"
                                     />
-                                    <span class="text-slate-200 font-medium"
+                                    <span class="text-slate-700 font-medium"
                                         >Remodelaciones</span
                                     >
                                     <div
-                                        class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"
+                                        class="check-icon absolute top-2 right-2 text-blue-500 opacity-0 transition-all transform scale-0"
                                     >
                                         <CheckCircle2 className="w-5 h-5" />
                                     </div>
@@ -554,14 +556,14 @@ import "../styles/global.css";
 
                         <div class="mt-8">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Otros Servicios / Notas de Servicios</label
                             >
                             <textarea
                                 name="Notas_Servicios"
                                 rows="3"
                                 placeholder="Describe algún servicio especial o detalle técnico..."
-                                class="input-field w-full p-3 rounded-lg"
+                                class="input-field w-full p-3 rounded-lg placeholder-slate-400"
                             ></textarea>
                         </div>
                     </section>
@@ -603,7 +605,7 @@ import "../styles/global.css";
                                             checked
                                         />
                                         <div
-                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
+                                            class="card-premium bg-white p-6 rounded-xl border border-slate-200 h-full flex flex-col justify-between group"
                                         >
                                             <div class="mb-4">
                                                 <div
@@ -614,12 +616,12 @@ import "../styles/global.css";
                                                     />
                                                 </div>
                                                 <h4
-                                                    class="text-lg font-bold text-white mb-1"
+                                                    class="text-lg font-bold text-slate-900 mb-1"
                                                 >
                                                     Corporativo
                                                 </h4>
                                                 <p
-                                                    class="text-sm text-slate-400 mb-3"
+                                                    class="text-sm text-slate-500 mb-3"
                                                 >
                                                     Confiable, profesional,
                                                     seguro.
@@ -665,7 +667,7 @@ import "../styles/global.css";
                                             class="hidden-checkbox"
                                         />
                                         <div
-                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
+                                            class="card-premium bg-white p-6 rounded-xl border border-slate-200 h-full flex flex-col justify-between group"
                                         >
                                             <div class="mb-4">
                                                 <div
@@ -676,12 +678,12 @@ import "../styles/global.css";
                                                     />
                                                 </div>
                                                 <h4
-                                                    class="text-lg font-bold text-white mb-1"
+                                                    class="text-lg font-bold text-slate-900 mb-1"
                                                 >
                                                     Robusto
                                                 </h4>
                                                 <p
-                                                    class="text-sm text-slate-400 mb-3"
+                                                    class="text-sm text-slate-500 mb-3"
                                                 >
                                                     Industrial, fuerte, alto
                                                     contraste.
@@ -727,7 +729,7 @@ import "../styles/global.css";
                                             class="hidden-checkbox"
                                         />
                                         <div
-                                            class="card-premium bg-slate-800 p-6 rounded-xl border border-slate-700 h-full flex flex-col justify-between group"
+                                            class="card-premium bg-white p-6 rounded-xl border border-slate-200 h-full flex flex-col justify-between group"
                                         >
                                             <div class="mb-4">
                                                 <div
@@ -738,12 +740,12 @@ import "../styles/global.css";
                                                     />
                                                 </div>
                                                 <h4
-                                                    class="text-lg font-bold text-white mb-1"
+                                                    class="text-lg font-bold text-slate-900 mb-1"
                                                 >
                                                     Minimalista
                                                 </h4>
                                                 <p
-                                                    class="text-sm text-slate-400 mb-3"
+                                                    class="text-sm text-slate-500 mb-3"
                                                 >
                                                     Espacio blanco, tipografía
                                                     limpia.
@@ -771,7 +773,7 @@ import "../styles/global.css";
                                                 </div>
                                             </div>
                                             <div
-                                                class="check-icon absolute top-3 right-3 text-slate-200 opacity-0 transition-all transform scale-0"
+                                                class="check-icon absolute top-3 right-3 text-slate-500 opacity-0 transition-all transform scale-0"
                                             >
                                                 <CheckCircle2
                                                     className="w-6 h-6"
@@ -797,7 +799,7 @@ import "../styles/global.css";
                         </div>
 
                         <p
-                            class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold"
+                            class="text-slate-500 mb-4 text-sm uppercase tracking-wide font-bold"
                         >
                             Actitud del Cliente Ideal
                         </p>
@@ -810,16 +812,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-slate-700 flex flex-col items-center text-center group"
+                                    class="card-premium bg-white p-5 rounded-xl h-full border border-slate-200 flex flex-col items-center text-center group"
                                 >
                                     <div
-                                        class="p-3 bg-green-900/30 rounded-full mb-3 group-hover:bg-green-600 transition-colors"
+                                        class="p-3 bg-green-100 rounded-full mb-3 group-hover:bg-green-600 transition-colors"
                                     >
                                         <CircleDollarSign
                                             className="text-green-500 group-hover:text-white w-8 h-8 transition-colors"
                                         />
                                     </div>
-                                    <h4 class="font-bold text-white mb-2">
+                                    <h4 class="font-bold text-slate-900 mb-2">
                                         Busca Precio
                                     </h4>
                                     <div
@@ -838,16 +840,16 @@ import "../styles/global.css";
                                     checked
                                 />
                                 <div
-                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-blue-500/50 flex flex-col items-center text-center group"
+                                    class="card-premium bg-white p-5 rounded-xl h-full border border-blue-200 flex flex-col items-center text-center group"
                                 >
                                     <div
-                                        class="p-3 bg-blue-900/30 rounded-full mb-3 group-hover:bg-blue-600 transition-colors"
+                                        class="p-3 bg-blue-100 rounded-full mb-3 group-hover:bg-blue-600 transition-colors"
                                     >
                                         <Handshake
                                             className="text-blue-500 group-hover:text-white w-8 h-8 transition-colors"
                                         />
                                     </div>
-                                    <h4 class="font-bold text-white mb-2">
+                                    <h4 class="font-bold text-slate-900 mb-2">
                                         Busca Confianza
                                     </h4>
                                     <div
@@ -865,16 +867,16 @@ import "../styles/global.css";
                                     class="hidden-checkbox"
                                 />
                                 <div
-                                    class="card-premium bg-slate-800 p-5 rounded-xl h-full border border-slate-700 flex flex-col items-center text-center group"
+                                    class="card-premium bg-white p-5 rounded-xl h-full border border-slate-200 flex flex-col items-center text-center group"
                                 >
                                     <div
-                                        class="p-3 bg-purple-900/30 rounded-full mb-3 group-hover:bg-purple-600 transition-colors"
+                                        class="p-3 bg-purple-100 rounded-full mb-3 group-hover:bg-purple-600 transition-colors"
                                     >
                                         <Building2
                                             className="text-purple-500 group-hover:text-white w-8 h-8 transition-colors"
                                         />
                                     </div>
-                                    <h4 class="font-bold text-white mb-2">
+                                    <h4 class="font-bold text-slate-900 mb-2">
                                         Corporativo
                                     </h4>
                                     <div
@@ -888,7 +890,7 @@ import "../styles/global.css";
 
                         <div>
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Notas Adicionales (Diseño/Cliente)</label
                             >
                             <textarea
@@ -904,7 +906,7 @@ import "../styles/global.css";
                 <!-- STEP 5: RECURSOS (NUEVO) -->
                 <div class="step-content hidden" data-step="5">
                     <section
-                        class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up"
+                        class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-200 animate-fade-in-up"
                     >
                         <div class="flex items-center mb-6">
                             <div
@@ -913,10 +915,10 @@ import "../styles/global.css";
                                 5
                             </div>
                             <div>
-                                <h2 class="text-2xl font-bold text-white">
+                                <h2 class="text-2xl font-bold text-slate-900">
                                     Recursos y Técnicos
                                 </h2>
-                                <p class="text-slate-400 text-sm">
+                                <p class="text-slate-500 text-sm">
                                     ¿Qué tenemos listo para empezar?
                                 </p>
                             </div>
@@ -924,7 +926,7 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-3"
+                                class="block text-sm font-medium text-slate-700 mb-3"
                                 >Material Disponible</label
                             >
                             <div class="grid grid-cols-2 gap-3">
@@ -933,10 +935,10 @@ import "../styles/global.css";
                                         type="checkbox"
                                         name="Recursos"
                                         value="Logo Vectorial"
-                                        class="rounded bg-slate-700 border-slate-600"
+                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span class="text-slate-300"
-                                        >Logo (Vector/Alta Calidad)</span
+                                    <span class="text-slate-700 font-medium"
+                                        >Logo (Vector/Alta)</span
                                     >
                                 </label>
                                 <label class="flex items-center space-x-2">
@@ -944,9 +946,9 @@ import "../styles/global.css";
                                         type="checkbox"
                                         name="Recursos"
                                         value="Fotografias Propias"
-                                        class="rounded bg-slate-700 border-slate-600"
+                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span class="text-slate-300"
+                                    <span class="text-slate-700 font-medium"
                                         >Buena Fotografía</span
                                     >
                                 </label>
@@ -955,9 +957,9 @@ import "../styles/global.css";
                                         type="checkbox"
                                         name="Recursos"
                                         value="Textos Redactados"
-                                        class="rounded bg-slate-700 border-slate-600"
+                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span class="text-slate-300"
+                                    <span class="text-slate-700 font-medium"
                                         >Textos/Copywriting</span
                                     >
                                 </label>
@@ -966,9 +968,9 @@ import "../styles/global.css";
                                         type="checkbox"
                                         name="Recursos"
                                         value="Hosting/Dominio"
-                                        class="rounded bg-slate-700 border-slate-600"
+                                        class="rounded bg-slate-200 border-slate-300 text-blue-600 focus:ring-blue-500"
                                     />
-                                    <span class="text-slate-300"
+                                    <span class="text-slate-700 font-medium"
                                         >Hosting/Dominio Web</span
                                     >
                                 </label>
@@ -977,7 +979,7 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Redes Sociales (Links)</label
                             >
                             <div class="relative">
@@ -995,7 +997,7 @@ import "../styles/global.css";
 
                         <div class="mb-6">
                             <label
-                                class="block text-sm font-medium text-slate-300 mb-2"
+                                class="block text-sm font-medium text-slate-700 mb-2"
                                 >Comentarios Finales</label
                             >
                             <textarea
@@ -1007,12 +1009,12 @@ import "../styles/global.css";
                         </div>
 
                         <div
-                            class="p-4 bg-slate-800 rounded-lg border border-slate-600 text-center"
+                            class="p-4 bg-slate-50 rounded-lg border border-slate-200 text-center"
                         >
-                            <p class="text-slate-300 font-medium mb-2">
+                            <p class="text-slate-900 font-medium mb-2">
                                 🚀 ¡Todo listo!
                             </p>
-                            <p class="text-sm text-slate-400">
+                            <p class="text-sm text-slate-500">
                                 Revisa tus datos antes de generar el PDF final.
                                 Asegúrate de tener abierta la sesión de WhatsApp
                                 Web si vas a usar el envío directo.
@@ -1023,7 +1025,7 @@ import "../styles/global.css";
 
                 <!-- MENU DE NAVEGACIÓN FLOTANTE -->
                 <div
-                    class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-t border-slate-700 p-4 z-50"
+                    class="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-slate-200 p-4 z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]"
                 >
                     <div
                         class="max-w-4xl mx-auto flex justify-between items-center"
@@ -1031,7 +1033,7 @@ import "../styles/global.css";
                         <button
                             type="button"
                             id="prevBtn"
-                            class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-3 px-6 rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                            class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-bold py-3 px-6 rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             <ArrowLeft className="w-5 h-5" /> Anterior
                         </button>
@@ -1060,10 +1062,10 @@ import "../styles/global.css";
         <!-- Modal de confirmación -->
         <div
             id="successModal"
-            class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[60] backdrop-blur-sm"
+            class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[60] backdrop-blur-sm"
         >
             <div
-                class="bg-slate-800 p-8 rounded-2xl shadow-2xl max-w-md text-center border border-slate-600 transform transition-all scale-100 animate-zoom-in"
+                class="bg-white p-8 rounded-2xl shadow-2xl max-w-md text-center border border-slate-200 transform transition-all scale-100 animate-zoom-in"
             >
                 <div
                     id="modalIcon"
@@ -1071,16 +1073,19 @@ import "../styles/global.css";
                 >
                     <CheckCircle2 className="text-white w-8 h-8" />
                 </div>
-                <h3 id="modalTitle" class="text-2xl font-bold text-white mb-2">
+                <h3
+                    id="modalTitle"
+                    class="text-2xl font-bold text-slate-900 mb-2"
+                >
                     ¡Reporte Generado!
                 </h3>
-                <p id="modalMessage" class="text-slate-300 mb-6">
+                <p id="modalMessage" class="text-slate-500 mb-6">
                     La información se ha copiado a tu portapapeles.
                 </p>
                 <div id="modalActions" class="mt-4">
                     <button
                         id="closeModalBtn"
-                        class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2 px-6 rounded-lg transition-colors"
+                        class="bg-slate-200 hover:bg-slate-300 text-slate-900 font-medium py-2 px-6 rounded-lg transition-colors"
                     >
                         Entendido
                     </button>

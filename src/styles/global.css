@@ -3,8 +3,10 @@
 @theme {
     --font-sans: 'Inter', 'sans-serif';
 
-    --color-brand-dark: #0f172a;
-    --color-brand-card: #1e293b;
+    --color-brand-dark: #f8fafc;
+    /* Slate 50 - Off White Background */
+    --color-brand-card: #ffffff;
+    /* White - Card Background */
     --color-brand-accent: #3b82f6;
     --color-brand-success: #10b981;
     --color-brand-gold: #f59e0b;
@@ -13,21 +15,25 @@
 /* Estilos personalizados para inputs y scrollbar */
 body {
     background-color: var(--color-brand-dark);
-    color: #e2e8f0;
+    color: #1e293b;
+    /* Slate 800 - Dark Text */
     font-family: var(--font-sans);
 }
 
 .input-field {
-    background-color: #334155;
-    border: 1px solid #475569;
-    color: white;
+    background-color: #f1f5f9;
+    /* Slate 100 */
+    border: 1px solid #cbd5e1;
+    /* Slate 300 */
+    color: #0f172a;
+    /* Slate 900 */
     transition: all 0.3s ease;
 }
 
 .input-field:focus {
     outline: none;
     border-color: var(--color-brand-accent);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 /* Ocultar checkbox nativo pero mantener funcionalidad */
@@ -40,17 +46,20 @@ body {
 }
 
 /* Estilo de tarjeta seleccionable */
+/* Estilo de tarjeta seleccionable */
+/* Estilo de tarjeta seleccionable */
 .selection-card {
     transition: all 0.2s ease-in-out;
-    border: 2px solid transparent;
+    border: 1px solid #cbd5e1;
+    /* Slate 300 to match inputs/premium */
 }
 
 .hidden-checkbox:checked+.selection-card {
     border-color: var(--color-brand-accent);
-    background-color: #1e3a8a;
-    /* Azul oscuro - could be a var */
+    background-color: #eff6ff;
+    /* Blue 50 */
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.15);
 }
 
 .hidden-checkbox:checked+.selection-card .check-icon {
@@ -63,12 +72,16 @@ body {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    background-color: white;
+    /* Explicitly white default */
+    border: 1px solid #e2e8f0;
+    /* Slate 200 */
 }
 
 .card-premium:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-    border-color: rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    border-color: var(--color-brand-accent);
 }
 
 .card-premium:active {
@@ -77,7 +90,8 @@ body {
 
 .hidden-checkbox:checked+.card-premium {
     border-color: var(--color-brand-accent);
-    background-color: rgba(30, 58, 138, 0.4);
+    background-color: #eff6ff;
+    /* Blue 50 */
     box-shadow: 0 0 0 2px var(--color-brand-accent);
 }
 
