@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Inter', 'sans-serif';
+
+    --color-brand-dark: #0f172a;
+    --color-brand-card: #1e293b;
+    --color-brand-accent: #3b82f6;
+    --color-brand-success: #10b981;
+    --color-brand-gold: #f59e0b;
+}
+
+/* Estilos personalizados para inputs y scrollbar */
+body {
+    background-color: var(--color-brand-dark);
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+}
+
+.input-field {
+    background-color: #334155;
+    border: 1px solid #475569;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--color-brand-accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Ocultar checkbox nativo pero mantener funcionalidad */
+.hidden-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Estilo de tarjeta seleccionable */
+.selection-card {
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.hidden-checkbox:checked + .selection-card {
+    border-color: var(--color-brand-accent);
+    background-color: #1e3a8a; /* Azul oscuro - could be a var */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.hidden-checkbox:checked + .selection-card .check-icon {
+    opacity: 1;
+    transform: scale(1);
+}

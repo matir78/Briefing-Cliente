@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing de Proyecto Web | Servicio Integral</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#3b82f6',
+                            success: '#10b981',
+                            gold: '#f59e0b'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para inputs y scrollbar */
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .input-field {
+            background-color: #334155;
+            border: 1px solid #475569;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        /* Ocultar checkbox nativo pero mantener funcionalidad */
+        .hidden-checkbox {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+        /* Estilo de tarjeta seleccionable */
+        .selection-card {
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .hidden-checkbox:checked + .selection-card {
+            border-color: #3b82f6;
+            background-color: #1e3a8a; /* Azul oscuro */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        .hidden-checkbox:checked + .selection-card .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-20">
+
+    <!-- Header Hero -->
+    <div class="bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg border-b border-slate-700">
+        <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+            <div class="inline-block p-3 rounded-full bg-blue-500/20 mb-4">
+                <i class="fa-solid fa-house-chimney text-blue-400 text-3xl"></i>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">
+                Definición de Proyecto Web
+            </h1>
+            <p class="text-lg text-slate-400 font-light">
+                Servicio Integral Indoor & Outdoor | Illinois, USA
+            </p>
+            <div class="mt-6 w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
+        </div>
+    </div>
+
+    <!-- Formulario Principal -->
+    <form id="briefForm" class="max-w-4xl mx-auto px-6 -mt-8 relative z-10">
+        
+        <!-- SECCIÓN 1: Identidad -->
+        <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-8 border border-slate-700">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                <h2 class="text-2xl font-bold text-white">Identidad y Contacto</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Nombre de la Empresa</label>
+                    <input type="text" name="Empresa" placeholder="Ej: Illinois Total Home Care" class="input-field w-full p-3 rounded-lg" required>
+                </div>
+                <div class="col-span-2">
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Eslogan / Tagline (Si tiene)</label>
+                    <input type="text" name="Eslogan" placeholder="Ej: Cuidamos tu hogar, dentro y fuera" class="input-field w-full p-3 rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Teléfono Principal</label>
+                    <input type="tel" name="Telefono" placeholder="(555) 123-4567" class="input-field w-full p-3 rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Email de Contacto</label>
+                    <input type="email" name="Email" placeholder="contacto@empresa.com" class="input-field w-full p-3 rounded-lg">
+                </div>
+                <div class="col-span-2 flex items-center gap-3 p-4 bg-slate-800 rounded-lg">
+                    <input type="checkbox" name="Mostrar_Direccion" id="showAddress" class="w-5 h-5 rounded text-blue-600 bg-slate-700 border-gray-600 focus:ring-blue-500 focus:ring-2">
+                    <label for="showAddress" class="text-slate-300 cursor-pointer">Mostrar mi dirección física en el mapa de la web</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: Servicios -->
+        <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-8 border border-slate-700">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                <h2 class="text-2xl font-bold text-white">Servicios y Alcance</h2>
+            </div>
+
+            <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Selecciona tus servicios principales (Outdoor)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                <!-- Checkbox Item -->
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Outdoor" value="Corte de Césped" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-leaf text-green-500 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Corte de Césped</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                <!-- Checkbox Item -->
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Outdoor" value="Nieve / Snow Removal" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-snowflake text-blue-300 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Nieve / Snow</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                <!-- Checkbox Item -->
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Outdoor" value="Hardscaping" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-shapes text-orange-400 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Hardscaping</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                 <!-- Checkbox Item -->
+                 <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Outdoor" value="Limpieza Estacional" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-broom text-yellow-600 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Limpieza Terreno</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+            </div>
+
+            <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Selecciona tus servicios principales (Indoor/Handyman)</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                 <!-- Checkbox Item -->
+                 <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Indoor" value="Pintura" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-paint-roller text-pink-500 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Pintura</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                <!-- Checkbox Item -->
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Indoor" value="Reparaciones Generales" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-hammer text-gray-400 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Reparaciones</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                 <!-- Checkbox Item -->
+                 <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Indoor" value="Plomeria/Electricidad Basica" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-bolt text-yellow-400 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Plomería/Elec.</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+                <!-- Checkbox Item -->
+                <label class="cursor-pointer relative">
+                    <input type="checkbox" name="Servicios_Indoor" value="Remodelaciones Pequeñas" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                        <i class="fa-solid fa-kitchen-set text-purple-400 text-3xl mb-3"></i>
+                        <span class="text-slate-200 font-medium">Remodelaciones</span>
+                        <i class="fa-solid fa-circle-check check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0"></i>
+                    </div>
+                </label>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-lg border border-slate-600">
+                <label class="block text-sm font-medium text-slate-300 mb-3">¿Cómo quiere manejar las temporadas en la web?</label>
+                <div class="space-y-3">
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="radio" name="Temporadas" value="Automatico" class="w-5 h-5 text-blue-600 bg-slate-700 border-slate-500 focus:ring-blue-500">
+                        <span class="text-slate-300"><strong>Automático:</strong> Cambia la portada (Invierno: Nieve / Verano: Pasto).</span>
+                    </label>
+                    <label class="flex items-center space-x-3 cursor-pointer">
+                        <input type="radio" name="Temporadas" value="Estatico" class="w-5 h-5 text-blue-600 bg-slate-700 border-slate-500 focus:ring-blue-500">
+                        <span class="text-slate-300"><strong>Estático:</strong> Muestra todo siempre igual.</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: Cliente Ideal -->
+        <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-8 border border-slate-700">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                <h2 class="text-2xl font-bold text-white">Cliente y Zona (Targeting)</h2>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-slate-300 mb-2">Ciudades principales de cobertura (Ej: Naperville, etc.)</label>
+                <input type="text" name="Ciudades" placeholder="Liste las 5 principales separadas por coma" class="input-field w-full p-3 rounded-lg">
+            </div>
+
+            <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Actitud del Cliente Ideal</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Radio Card 1 -->
+                <label class="cursor-pointer relative">
+                    <input type="radio" name="Actitud_Cliente" value="Busca Precio" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700">
+                        <div class="text-2xl mb-2">💰</div>
+                        <h4 class="font-bold text-white mb-2">Busca Precio</h4>
+                        <p class="text-xs text-slate-400">Quiere lo más barato, aunque tenga que supervisar.</p>
+                    </div>
+                </label>
+                <!-- Radio Card 2 -->
+                <label class="cursor-pointer relative">
+                    <input type="radio" name="Actitud_Cliente" value="Busca Confianza (Profesional)" class="hidden-checkbox" checked>
+                    <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-blue-500/50 hover:bg-slate-700">
+                        <div class="text-2xl mb-2">🤝</div>
+                        <h4 class="font-bold text-white mb-2">Busca Confianza</h4>
+                        <p class="text-xs text-slate-400">Profesional ocupado. Quiere darte las llaves y olvidarse.</p>
+                        <span class="absolute top-0 right-0 bg-blue-600 text-xs px-2 py-1 rounded-bl-lg rounded-tr-lg text-white">Recomendado</span>
+                    </div>
+                </label>
+                <!-- Radio Card 3 -->
+                <label class="cursor-pointer relative">
+                    <input type="radio" name="Actitud_Cliente" value="Busca Empresa Gigante" class="hidden-checkbox">
+                    <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700">
+                        <div class="text-2xl mb-2">🏢</div>
+                        <h4 class="font-bold text-white mb-2">Corporativo</h4>
+                        <p class="text-xs text-slate-400">Busca grandes flotas para proyectos comerciales masivos.</p>
+                    </div>
+                </label>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: Estilo y Funciones -->
+        <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-8 border border-slate-700">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">4</div>
+                <h2 class="text-2xl font-bold text-white">Estilo y Tecnología</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Estilo Visual -->
+                <div>
+                    <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Estilo Visual Preferido</p>
+                    <div class="space-y-2">
+                        <label class="flex items-center p-3 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition">
+                            <input type="radio" name="Estilo_Visual" value="Corporativo y Limpio" class="text-blue-500 w-5 h-5 mr-3 focus:ring-blue-500 bg-slate-700 border-slate-500">
+                            <div class="w-6 h-6 rounded-full bg-slate-200 mr-2"></div>
+                            <span class="text-slate-200">Corporativo (Azul, Blanco, Gris)</span>
+                        </label>
+                        <label class="flex items-center p-3 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition">
+                            <input type="radio" name="Estilo_Visual" value="Robusto y Fuerte" class="text-orange-500 w-5 h-5 mr-3 focus:ring-orange-500 bg-slate-700 border-slate-500">
+                            <div class="w-6 h-6 rounded-full bg-orange-600 mr-2"></div>
+                            <span class="text-slate-200">Robusto (Negro, Naranja, Bold)</span>
+                        </label>
+                        <label class="flex items-center p-3 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition">
+                            <input type="radio" name="Estilo_Visual" value="Ecológico y Zen" class="text-green-500 w-5 h-5 mr-3 focus:ring-green-500 bg-slate-700 border-slate-500">
+                            <div class="w-6 h-6 rounded-full bg-green-600 mr-2"></div>
+                            <span class="text-slate-200">Ecológico (Verdes, Madera)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Funcionalidades -->
+                <div>
+                    <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Funciones Web Necesarias</p>
+                    <div class="space-y-3">
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" name="Funciones" value="Formulario Cotización" checked class="rounded text-blue-500 w-5 h-5 bg-slate-700 border-slate-600 focus:ring-blue-500">
+                            <span class="text-slate-300">Formulario Cotización</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" name="Funciones" value="Agendar Visita (Calendario)" class="rounded text-blue-500 w-5 h-5 bg-slate-700 border-slate-600 focus:ring-blue-500">
+                            <span class="text-slate-300">Agendar Visita (Calendario)</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" name="Funciones" value="Pagos Online" class="rounded text-blue-500 w-5 h-5 bg-slate-700 border-slate-600 focus:ring-blue-500">
+                            <span class="text-slate-300">Pagos Online / Facturas</span>
+                        </label>
+                         <label class="flex items-center space-x-3">
+                            <input type="checkbox" name="Funciones" value="Chat WhatsApp" class="rounded text-blue-500 w-5 h-5 bg-slate-700 border-slate-600 focus:ring-blue-500">
+                            <span class="text-slate-300">Botón WhatsApp / Chat</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: Final -->
+        <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-12 border border-slate-700">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">5</div>
+                <h2 class="text-2xl font-bold text-white">Material y Recursos</h2>
+            </div>
+            
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-slate-300 mb-2">Fotos de Trabajos</label>
+                <select name="Fotos" class="input-field w-full p-3 rounded-lg">
+                    <option value="Tengo Profesionales">Tengo fotos profesionales de alta calidad</option>
+                    <option value="Tengo Celular">Tengo fotos de celular (buena luz)</option>
+                    <option value="No tengo">No tengo, necesito stock o contratar fotógrafo</option>
+                </select>
+            </div>
+
+             <div class="mb-6">
+                <label class="block text-sm font-medium text-slate-300 mb-2">Referencias (Links de webs que te gusten)</label>
+                <textarea name="Referencias" rows="3" placeholder="Pega aquí los enlaces..." class="input-field w-full p-3 rounded-lg"></textarea>
+            </div>
+
+            <div class="p-4 bg-yellow-900/30 border border-yellow-700/50 rounded-lg">
+                <label class="block text-sm font-bold text-yellow-500 mb-2">Tu Promesa Única:</label>
+                <input type="text" name="Promesa" placeholder="Ej: Llegamos a tiempo o es gratis..." class="input-field w-full p-3 rounded-lg border-yellow-700/50">
+            </div>
+        </section>
+
+        <!-- ACTION BAR -->
+        <div class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-t border-slate-700 p-4 z-50">
+            <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-400 text-sm hidden md:block">Revisa tus respuestas antes de generar el reporte.</p>
+                <button type="button" onclick="generateReport()" class="w-full md:w-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-export"></i> Generar y Copiar Respuestas
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+    <!-- Modal de confirmación (Oculto por defecto) -->
+    <div id="successModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[60] backdrop-blur-sm">
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl max-w-md text-center border border-slate-600 transform transition-all scale-100">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-check text-white text-3xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">¡Reporte Generado!</h3>
+            <p class="text-slate-300 mb-6">La información se ha copiado a tu portapapeles. Ahora puedes pegarla (Ctrl+V) en un email o WhatsApp para enviárnosla.</p>
+            <button onclick="closeModal()" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function generateReport() {
+            const form = document.getElementById('briefForm');
+            const formData = new FormData(form);
+            let report = "🚀 BRIEFING DE PROYECTO WEB - REPORTE\n";
+            report += "========================================\n\n";
+
+            // Iterar sobre los datos y formatear
+            for (let [key, value] of formData.entries()) {
+                // Formatear la clave para que se vea bonita (eliminar guiones bajos)
+                let label = key.replace(/_/g, " ");
+                if (value.trim() !== "") {
+                    report += `🔹 ${label}: ${value}\n`;
+                }
+            }
+            
+            // Manejo especial para checkboxes múltiples (se sobrescriben en loop simple)
+            // Aquí capturamos arrays de checkboxes manualmente para agregarlos al reporte si es necesario
+            // (El loop simple de FormData ya captura valores repetidos como líneas separadas, lo cual es legible)
+
+            report += "\n========================================\n";
+            report += "Fin del reporte. Listo para desarrollo.";
+
+            // FALLBACK ROBUSTO PARA COPIAR AL PORTAPAPELES
+            // Usamos document.execCommand('copy') porque navigator.clipboard suele fallar en iframes con permisos estrictos
+            try {
+                // 1. Crear elemento temporal
+                const textArea = document.createElement("textarea");
+                textArea.value = report;
+                
+                // 2. Asegurar que no sea visible pero esté en el DOM
+                textArea.style.position = "fixed";
+                textArea.style.left = "-9999px";
+                textArea.style.top = "0";
+                document.body.appendChild(textArea);
+                
+                // 3. Seleccionar y copiar
+                textArea.focus();
+                textArea.select();
+                const successful = document.execCommand('copy');
+                
+                // 4. Limpiar
+                document.body.removeChild(textArea);
+                
+                if (successful) {
+                    const modal = document.getElementById('successModal');
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                } else {
+                    console.error("Fallo execCommand('copy')");
+                    alert('No se pudo copiar automáticamente. Por favor, revisa los permisos de tu navegador.');
+                }
+            } catch (err) {
+                console.error('Error al intentar copiar: ', err);
+                alert('Hubo un error al copiar el reporte.');
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('successModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    </script>
+</body>
+</html>

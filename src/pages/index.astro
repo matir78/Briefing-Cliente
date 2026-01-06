@@ -1,0 +1,578 @@
+
+---
+import { 
+    Briefcase, 
+    Snowflake, 
+    Cuboid, 
+    Sparkles, 
+    PaintRoller, 
+    Hammer, 
+    Zap, 
+    PencilRuler, 
+    CheckCircle2, 
+    FileOutput, 
+    ArrowRight,
+    ArrowLeft,
+    CircleDollarSign,
+    Handshake,
+    Building2,
+    MessageCircle,
+    Target,
+    Lightbulb,
+    Users,
+    Globe,
+    Share2
+} from 'lucide-react';
+---
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing de Proyecto Web | Servicio Integral</title>
+    <meta name="description" content="Formulario inteligente para toma de requerimientos de proyectos web y servicios.">
+    <link rel="stylesheet" href="/src/styles/global.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen pb-32">
+
+    <!-- HEADER -->
+    <header class="bg-slate-900/90 backdrop-blur-md border-b border-slate-700 sticky top-0 z-40">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="bg-blue-600 p-2 rounded-lg">
+                    <Briefcase className="text-white w-6 h-6" />
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-white">Briefing Creativo</h1>
+                    <p class="text-xs text-slate-400">Sistema de Toma de Requerimientos</p>
+                </div>
+            </div>
+            <div class="text-right hidden sm:block">
+                <p class="text-xs text-slate-500 font-medium">VERSIÓN 2.1</p>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span class="text-xs text-green-400 font-bold">WIZARD ACTIVO</span>
+                </div>
+            </div>
+        </div>
+        <!-- PROGRESS BAR -->
+        <div class="h-1 bg-slate-800 w-full">
+            <div id="progressBar" class="h-full bg-blue-500 transition-all duration-500 ease-out" style="width: 20%"></div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-8">
+        
+        <form id="briefForm" class="space-y-6">
+
+            <!-- STEP 1: IDENTIDAD -->
+            <div class="step-content" data-step="1">
+                <section class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Identidad del Negocio</h2>
+                            <p class="text-slate-400 text-sm">Datos básicos para contactar y factura.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Nombre de la Empresa / Marca</label>
+                            <input type="text" name="Empresa" required placeholder="Ej: Carmelo Services LLC" class="input-field w-full p-3 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Eslogan o Frase Corta</label>
+                            <input type="text" name="Eslogan" placeholder="Ej: Calidad que perdura" class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Teléfono de Contacto</label>
+                            <input type="tel" name="Telefono" placeholder="+1 (555) 000-0000" class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Email Principal</label>
+                            <input type="email" name="Email" placeholder="contacto@empresa.com" class="input-field w-full p-3 rounded-lg text-slate-300 placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Notas Adicionales (Identidad)</label>
+                        <textarea name="Notas_Identidad" rows="2" placeholder="Algo más que debamos saber..." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+                </section>
+            </div>
+
+            <!-- STEP 2: ESTRATEGIA (NUEVO) -->
+            <div class="step-content hidden" data-step="2">
+                <section class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Estrategia Digital</h2>
+                            <p class="text-slate-400 text-sm">¿Qué queremos lograr con esta web?</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <label class="block text-sm font-medium text-slate-300 mb-3">Objetivo Principal de la Web</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="cursor-pointer relative">
+                                <input type="radio" name="Objetivo_Web" value="Captar Leads (Formulario)" class="hidden-checkbox" checked>
+                                <div class="selection-card bg-slate-800 p-4 rounded-xl border border-slate-600 hover:bg-slate-700 flex items-center gap-3">
+                                    <Target className="text-red-500 w-6 h-6" />
+                                    <span class="text-slate-200">Captar Clientes (Leads)</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer relative">
+                                <input type="radio" name="Objetivo_Web" value="Branding / Informativa" class="hidden-checkbox">
+                                <div class="selection-card bg-slate-800 p-4 rounded-xl border border-slate-600 hover:bg-slate-700 flex items-center gap-3">
+                                    <Lightbulb className="text-yellow-500 w-6 h-6" />
+                                    <span class="text-slate-200">Presencia de Marca</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Público Objetivo (Target)</label>
+                        <div class="relative">
+                            <Users className="absolute top-3 left-3 text-slate-500 w-5 h-5" />
+                            <input type="text" name="Publico_Objetivo" placeholder="Ej: Dueños de casa en zonas residenciales, Empresas..." class="input-field w-full p-3 pl-10 rounded-lg">
+                        </div>
+                        <p class="text-xs text-slate-500 mt-1">¿A quién le vendemos?</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Principales Competidores</label>
+                        <textarea name="Competencia" rows="2" placeholder="Nombres o links de empresas que ofrezcan lo mismo..." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Notas Adicionales (Estrategia)</label>
+                        <textarea name="Notas_Estrategia" rows="2" placeholder="Detalles extra sobre objetivos..." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+                </section>
+            </div>
+
+            <!-- STEP 3: SERVICIOS -->
+            <div class="step-content hidden" data-step="3">
+                <section class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Servicios a Ofrecer</h2>
+                            <p class="text-slate-400 text-sm">Selecciona las áreas de negocio.</p>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Servicios Outdoor (Exterior)</p>
+                    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Outdoor" value="Landscaping" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Globe className="text-green-500 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Landscaping</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Outdoor" value="Nieve / Snow Removal" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Snowflake className="text-blue-300 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Nieve / Snow</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Outdoor" value="Hardscaping" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Cuboid className="text-orange-400 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Hardscaping</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Outdoor" value="Limpieza Estacional" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Sparkles className="text-yellow-600 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Limpieza Terreno</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Servicios Indoor (Interior)</p>
+                    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Indoor" value="Pintura" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <PaintRoller className="text-pink-500 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Pintura</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Indoor" value="Reparaciones Generales" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Hammer className="text-gray-400 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Reparaciones</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Indoor" value="Plomeria/Electricidad Basica" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <Zap className="text-yellow-400 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Plomería/Elec.</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                         <label class="cursor-pointer relative">
+                            <input type="checkbox" name="Servicios_Indoor" value="Remodelaciones Pequeñas" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-4 rounded-xl h-full flex flex-col items-center justify-center text-center hover:bg-slate-700">
+                                <PencilRuler className="text-purple-400 w-8 h-8 mb-3" />
+                                <span class="text-slate-200 font-medium">Remodelaciones</span>
+                                <div class="check-icon absolute top-2 right-2 text-blue-400 opacity-0 transition-all transform scale-0">
+                                    <CheckCircle2 className="w-5 h-5" />
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mt-8">
+                         <label class="block text-sm font-medium text-slate-300 mb-2">Otros Servicios / Notas de Servicios</label>
+                        <textarea name="Notas_Servicios" rows="3" placeholder="Describe algún servicio especial o detalle técnico..." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+                </section>
+            </div>
+
+            <!-- STEP 4: CLIENTE Y DISEÑO -->
+            <div class="step-content hidden" data-step="4">
+                <section class="bg-brand-card rounded-2xl p-8 shadow-2xl mb-8 border border-slate-700 animate-fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">4</div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Diseño y Preferencias</h2>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                        <div>
+                             <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Estilo Visual</p>
+                             <div class="space-y-3">
+                                <label class="flex items-center p-4 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition">
+                                    <input type="radio" name="Estilo_Visual" value="Corporativo y Limpio" class="w-5 h-5 text-blue-600 mr-3" checked>
+                                    <span class="text-slate-200">Corporativo (Azul, Blanco, Serio)</span>
+                                </label>
+                                <label class="flex items-center p-4 rounded-lg border border-slate-700 hover:bg-slate-800 cursor-pointer transition">
+                                    <input type="radio" name="Estilo_Visual" value="Robusto y Fuerte" class="w-5 h-5 text-orange-600 mr-3">
+                                    <span class="text-slate-200">Robusto (Negro, Naranja, Bold)</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Zonas de Cobertura</p>
+                            <input type="text" name="Ciudades" placeholder="Ej: Naperville, Aurora, Chicago..." class="input-field w-full p-4 rounded-lg">
+                        </div>
+                    </div>
+
+                     <p class="text-slate-400 mb-4 text-sm uppercase tracking-wide font-bold">Actitud del Cliente Ideal</p>
+                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="Actitud_Cliente" value="Busca Precio" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700">
+                                <CircleDollarSign className="text-green-500 w-10 h-10 mb-2" />
+                                <h4 class="font-bold text-white mb-2">Busca Precio</h4>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="Actitud_Cliente" value="Busca Confianza (Profesional)" class="hidden-checkbox" checked>
+                            <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-blue-500/50 hover:bg-slate-700">
+                                <Handshake className="text-blue-500 w-10 h-10 mb-2" />
+                                <h4 class="font-bold text-white mb-2">Busca Confianza</h4>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer relative">
+                            <input type="radio" name="Actitud_Cliente" value="Busca Empresa Gigante" class="hidden-checkbox">
+                            <div class="selection-card bg-slate-800 p-5 rounded-xl h-full border border-slate-700 hover:bg-slate-700">
+                                <Building2 className="text-purple-500 w-10 h-10 mb-2" />
+                                <h4 class="font-bold text-white mb-2">Corporativo</h4>
+                            </div>
+                        </label>
+                    </div>
+
+                     <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Notas Adicionales (Diseño/Cliente)</label>
+                        <textarea name="Notas_Diseño" rows="2" placeholder="Preferencias específicas, colores, etc." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+                </section>
+            </div>
+
+            <!-- STEP 5: RECURSOS (NUEVO) -->
+            <div class="step-content hidden" data-step="5">
+                <section class="bg-brand-card rounded-2xl p-8 shadow-2xl border border-slate-700 animate-fade-in-up">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">5</div>
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">Recursos y Técnicos</h2>
+                            <p class="text-slate-400 text-sm">¿Qué tenemos listo para empezar?</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-300 mb-3">Material Disponible</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="Recursos" value="Logo Vectorial" class="rounded bg-slate-700 border-slate-600">
+                                <span class="text-slate-300">Logo (Vector/Alta Calidad)</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="Recursos" value="Fotografias Propias" class="rounded bg-slate-700 border-slate-600">
+                                <span class="text-slate-300">Buena Fotografía</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="Recursos" value="Textos Redactados" class="rounded bg-slate-700 border-slate-600">
+                                <span class="text-slate-300">Textos/Copywriting</span>
+                            </label>
+                            <label class="flex items-center space-x-2">
+                                <input type="checkbox" name="Recursos" value="Hosting/Dominio" class="rounded bg-slate-700 border-slate-600">
+                                <span class="text-slate-300">Hosting/Dominio Web</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                         <label class="block text-sm font-medium text-slate-300 mb-2">Redes Sociales (Links)</label>
+                         <div class="relative">
+                            <Share2 className="absolute top-3 left-3 text-slate-500 w-5 h-5" />
+                            <input type="text" name="Redes_Sociales" placeholder="Instagram, Facebook, LinkedIn..." class="input-field w-full p-3 pl-10 rounded-lg">
+                        </div>
+                    </div>
+
+                     <div class="mb-6">
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Comentarios Finales</label>
+                        <textarea name="Notas_Finales" rows="3" placeholder="Cualquier duda, pregunta o requerimiento final..." class="input-field w-full p-3 rounded-lg"></textarea>
+                    </div>
+
+                    <div class="p-4 bg-slate-800 rounded-lg border border-slate-600 text-center">
+                        <p class="text-slate-300 font-medium mb-2">🚀 ¡Todo listo!</p>
+                        <p class="text-sm text-slate-400">Revisa tus datos antes de generar el PDF final. Asegúrate de tener abierta la sesión de WhatsApp Web si vas a usar el envío directo.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- MENU DE NAVEGACIÓN FLOTANTE -->
+            <div class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-t border-slate-700 p-4 z-50">
+                <div class="max-w-4xl mx-auto flex justify-between items-center">
+                    <button type="button" id="prevBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold py-3 px-6 rounded-lg transition-all flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <ArrowLeft className="w-5 h-5" /> Anterior
+                    </button>
+                    
+                    <button type="button" id="nextBtn" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all flex items-center gap-2">
+                        Siguiente <ArrowRight className="w-5 h-5" />
+                    </button>
+
+                    <!-- SOLO APARECE EN EL PASO FINAL -->
+                    <button type="button" id="downloadPdfBtn" class="hidden bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-all flex items-center gap-2 transform hover:scale-105">
+                        <MessageCircle className="w-5 h-5" /> Generar PDF y Enviar
+                    </button>
+                    
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Modal de confirmación -->
+    <div id="successModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[60] backdrop-blur-sm">
+        <div class="bg-slate-800 p-8 rounded-2xl shadow-2xl max-w-md text-center border border-slate-600 transform transition-all scale-100 animate-zoom-in">
+            <div id="modalIcon" class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle2 className="text-white w-8 h-8" />
+            </div>
+            <h3 id="modalTitle" class="text-2xl font-bold text-white mb-2">¡Reporte Generado!</h3>
+            <p id="modalMessage" class="text-slate-300 mb-6">La información se ha copiado a tu portapapeles.</p>
+            <div id="modalActions" class="mt-4">
+                <button id="closeModalBtn" class="bg-slate-700 hover:bg-slate-600 text-white font-medium py-2 px-6 rounded-lg transition-colors">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- WIZARD LOGIC ---
+        let currentStep = 1;
+        const totalSteps = 5;
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const downloadBtn = document.getElementById('downloadPdfBtn');
+        const progressBar = document.getElementById('progressBar');
+        const form = document.getElementById('briefForm');
+
+        function updateUI() {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+            // Show current step
+            const currentEl = document.querySelector(`.step-content[data-step="${currentStep}"]`);
+            if (currentEl) currentEl.classList.remove('hidden');
+
+            // Scroll top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Buttons visibility
+            if (currentStep === 1) prevBtn.disabled = true;
+            else prevBtn.disabled = false;
+
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('hidden');
+                downloadBtn.classList.remove('hidden');
+                downloadBtn.classList.add('flex');
+            } else {
+                nextBtn.classList.remove('hidden');
+                downloadBtn.classList.add('hidden');
+                downloadBtn.classList.remove('flex');
+            }
+
+            // Progress Bar
+            const percentage = (currentStep / totalSteps) * 100;
+            progressBar.style.width = `${percentage}%`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                // Validation could go here
+                // if (!validateStep(currentStep)) return; 
+                currentStep++;
+                updateUI();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateUI();
+            }
+        });
+
+        // Initialize
+        updateUI();
+
+        // --- SUBMISSION LOGIC ---
+        function getFormData() {
+            if (!form) return null;
+            return new FormData(form as HTMLFormElement);
+        }
+
+        function showModal(title, message, type) {
+            const modal = document.getElementById('successModal');
+            if (!modal) return;
+            const titleEl = document.getElementById('modalTitle');
+            const msgEl = document.getElementById('modalMessage');
+            const iconEl = document.getElementById('modalIcon');
+            
+            if (titleEl) titleEl.innerText = title;
+            if (msgEl) msgEl.innerText = message;
+            
+            if (iconEl) {
+                 if (type === 'error') {
+                    iconEl.classList.remove('bg-green-500');
+                    iconEl.classList.add('bg-red-500');
+                 } else {
+                    iconEl.classList.remove('bg-red-500');
+                    iconEl.classList.add('bg-green-500');
+                 }
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modal = document.getElementById('successModal');
+
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            });
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            });
+        }
+
+        // --- DOWNLOAD HANDLER ---
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', async () => {
+                const formData = getFormData();
+                if (!formData) return;
+                
+                const originalText = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = 'Procesando...';
+                downloadBtn.disabled = true;
+
+                try {
+                    const response = await fetch('/api/download-pdf', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'Briefing_Proyecto.pdf'; 
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                        a.remove();
+
+                        const phone = "59897999135";
+                        const message = encodeURIComponent("¡Hola! Aquí adjunto el briefing en PDF que acabo de descargar.");
+                        const waUrl = `https://wa.me/${phone}?text=${message}`;
+                        
+                        window.open(waUrl, '_blank');
+
+                        showModal('¡Listo!', 'El PDF se ha descargado y se ha abierto WhatsApp.', 'success');
+                    } else {
+                        throw new Error('Error en el servidor');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    showModal('Error', 'Hubo un problema generando el PDF.', 'error');
+                } finally {
+                    downloadBtn.innerHTML = originalText;
+                    downloadBtn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
