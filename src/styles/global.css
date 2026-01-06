@@ -45,13 +45,15 @@ body {
     border: 2px solid transparent;
 }
 
-.hidden-checkbox:checked + .selection-card {
+.hidden-checkbox:checked+.selection-card {
     border-color: var(--color-brand-accent);
-    background-color: #1e3a8a; /* Azul oscuro - could be a var */
+    background-color: #1e3a8a;
+    /* Azul oscuro - could be a var */
     transform: translateY(-2px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
+.hidden-checkbox:checked+.selection-card .check-icon {
     opacity: 1;
     transform: scale(1);
 }
@@ -73,13 +75,13 @@ body {
     transform: scale(0.98);
 }
 
-.hidden-checkbox:checked + .card-premium {
+.hidden-checkbox:checked+.card-premium {
     border-color: var(--color-brand-accent);
     background-color: rgba(30, 58, 138, 0.4);
     box-shadow: 0 0 0 2px var(--color-brand-accent);
 }
 
-.hidden-checkbox:checked + .card-premium .check-icon {
+.hidden-checkbox:checked+.card-premium .check-icon {
     opacity: 1;
     transform: scale(1);
 }

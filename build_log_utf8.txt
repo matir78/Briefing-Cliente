@@ -1,0 +1,67 @@
+﻿
+> orbital-star@0.0.1 build C:\Users\home\Documents\poryectos-web\web-carmelo-form
+> astro build
+
+[2m06:50:24[22m [34m[@astrojs/netlify][39m Enabling sessions with Netlify Blobs
+[2m06:50:25[22m [34m[content][39m Syncing content
+[2m06:50:25[22m [34m[content][39m Synced content
+[2m06:50:25[22m [34m[types][39m Generated [2m233ms[22m
+[2m06:50:25[22m [34m[build][39m output: [34m"server"[39m
+[2m06:50:25[22m [34m[build][39m mode: [34m"server"[39m
+[2m06:50:25[22m [34m[build][39m directory: [34mC:\Users\home\Documents\poryectos-web\web-carmelo-form\dist\[39m
+[2m06:50:25[22m [34m[build][39m adapter: [32m@astrojs/netlify[39m
+[2m06:50:25[22m [34m[build][39m Collecting build info...
+[2m06:50:25[22m [34m[build][39m [32mÔ£ô Completed in 523ms.[39m
+[2m06:50:25[22m [34m[build][39m Building server entrypoints...
+[2m06:50:31[22m [34m[vite][39m [32mÔ£ô built in 6.25s[39m
+[2m06:50:31[22m [34m[build][39m [32mÔ£ô Completed in 6.42s.[39m
+
+[42m[30m building client (vite) [39m[49m
+[2m06:50:31[22m [34m[vite][39m transforming...
+[2m06:50:33[22m [34m[vite][39m [32mÔ£ô[39m 22 modules transformed.
+[2m06:50:33[22m [34m[vite][39m rendering chunks...
+[2m06:50:33[22m [34m[vite][39m computing gzip size...
+[2m06:50:33[22m [34m[vite][39m [2mdist/[22m[36m_astro/client.EAUERNtn.js  [39m[1m[2m194.63 kB[22m[1m[22m[2m Ôöé gzip: 60.99 kB[22m
+[2m06:50:33[22m [34m[vite][39m [32mÔ£ô built in 2.19s[39m
+
+[42m[30m prerendering static routes [39m[49m
+[2m06:50:34[22m [32mÔ£ô Completed in 283ms.
+[39m
+[2m06:50:34[22m [34m[build][39m Rearranging server assets...
+[2m06:50:34[22m [34m[@astrojs/netlify][39m Emitted _redirects
+[2m06:50:34[22m [34m[@astrojs/netlify][39m Bundling function ..\..\..\build\entry.mjs
+[2m06:50:43[22m [34m[build][39m Waiting for integration [1m"@astrojs/netlify"[22m, hook [1m"astro:build:done"[22m...
+pnpm : [31m[1m06:50:46[22m [ERROR] [@astrojs/netlify][39m An 
+unhandled error occurred while running the 
+[1m"astro:build:done"[22m hook
+En línea: 1 Carácter: 1
++ pnpm run build > build_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31m[1m06:50:...do 
+   ne"[22m hook:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+EPERM: operation not permitted, symlink 
+'.pnpm\react@19.2.3\node_modules\react' -> 'C:\Users\home\Document
+s\poryectos-web\web-carmelo-form\.netlify\v1\functions\ssr\node_mo
+dules\react'
+  [1mStack trace:[22m
+[2m    at async Module.symlink 
+(node:internal/fs/promises:1000:10)
+    at async copyDependenciesToFunction (file:///C:/Users/home/Doc
+uments/poryectos-web/web-carmelo-form/node_modules/.pnpm/@astrojs+
+netlify@6.6.3_@net_a825dc8991fb86010c7e0aafb65f8d79/node_modules/@
+astrojs/netlify/dist/lib/nft.js:40:26)
+    at async astro:build:done (file:///C:/Users/home/Documents/por
+yectos-web/web-carmelo-form/node_modules/.pnpm/@astrojs+netlify@6.
+6.3_@net_a825dc8991fb86010c7e0aafb65f8d79/node_modules/@astrojs/ne
+tlify/dist/index.js:501:11)
+    at async runHookInternal (file:///C:/Users/home/Documents/pory
+ectos-web/web-carmelo-form/node_modules/.pnpm/astro@5.16.6_@netlif
+y+blobs_57c3d4a1f73b79abf4c457349322a2cc/node_modules/astro/dist/i
+ntegrations/hooks.js:51:5)
+    at async AstroBuilder.build (file:///C:/Users/home/Documents/p
+oryectos-web/web-carmelo-form/node_modules/.pnpm/astro@5.16.6_@net
+lify+blobs_57c3d4a1f73b79abf4c457349322a2cc/node_modules/astro/dis
+t/core/build/index.js:167:5)[22m
+ÔÇëELIFECYCLEÔÇë Command failed with exit code 1.
